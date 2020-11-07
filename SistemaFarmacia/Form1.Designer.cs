@@ -1,4 +1,4 @@
-﻿namespace SistemaDeFarmacia
+﻿namespace SistemaFarmacia
 {
     partial class Form1
     {
