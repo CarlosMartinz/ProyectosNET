@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuarios));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptcCrud = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -38,10 +40,22 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdUsuarios = new System.Windows.Forms.DataGridView();
+            this.pnlFondo = new System.Windows.Forms.Panel();
+            this.pnlicono = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.imgIcono = new System.Windows.Forms.PictureBox();
+            this.imgIcono2 = new System.Windows.Forms.PictureBox();
+            this.imgIcono3 = new System.Windows.Forms.PictureBox();
+            this.imgIcono4 = new System.Windows.Forms.PictureBox();
+            this.imgIcono5 = new System.Windows.Forms.PictureBox();
+            this.imgIcono6 = new System.Windows.Forms.PictureBox();
+            this.imgIconoBuscar = new System.Windows.Forms.PictureBox();
             this.pnlRegistro = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.icono = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtNombreIcono = new System.Windows.Forms.TextBox();
+            this.lblNumIcono = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -57,59 +71,53 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pnlFondo = new System.Windows.Forms.Panel();
-            this.pnlicono = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.btnGuardar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModificar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.lblAnuncioIcono = new System.Windows.Forms.Label();
+            this.ptcIconoPass = new System.Windows.Forms.PictureBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcCrud)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.pnlRegistro.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUsuarios)).BeginInit();
             this.pnlFondo.SuspendLayout();
             this.pnlicono.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIconoBuscar)).BeginInit();
+            this.pnlRegistro.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcIconoPass)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.ptcCrud);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(626, 85);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(154, 450);
+            this.panel3.Size = new System.Drawing.Size(154, 521);
             this.panel3.TabIndex = 5;
             // 
-            // pictureBox1
+            // ptcCrud
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(16, 169);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 135);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.ptcCrud.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptcCrud.Image = ((System.Drawing.Image)(resources.GetObject("ptcCrud.Image")));
+            this.ptcCrud.Location = new System.Drawing.Point(16, 169);
+            this.ptcCrud.Name = "ptcCrud";
+            this.ptcCrud.Size = new System.Drawing.Size(126, 135);
+            this.ptcCrud.TabIndex = 0;
+            this.ptcCrud.TabStop = false;
+            this.ptcCrud.Click += new System.EventHandler(this.ptcCrud_Click);
             // 
             // panel2
             // 
@@ -187,20 +195,141 @@
             this.label1.Text = "USUARIOS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
+            // grdUsuarios
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 85);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(626, 450);
-            this.dataGridView1.TabIndex = 6;
+            this.grdUsuarios.AllowUserToAddRows = false;
+            this.grdUsuarios.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.grdUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdUsuarios.BackgroundColor = System.Drawing.Color.White;
+            this.grdUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.grdUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdUsuarios.GridColor = System.Drawing.Color.Gainsboro;
+            this.grdUsuarios.Location = new System.Drawing.Point(0, 85);
+            this.grdUsuarios.Name = "grdUsuarios";
+            this.grdUsuarios.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.grdUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.grdUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdUsuarios.Size = new System.Drawing.Size(626, 521);
+            this.grdUsuarios.TabIndex = 27;
+            // 
+            // pnlFondo
+            // 
+            this.pnlFondo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlFondo.BackColor = System.Drawing.Color.DarkGray;
+            this.pnlFondo.Controls.Add(this.pnlicono);
+            this.pnlFondo.Controls.Add(this.pnlRegistro);
+            this.pnlFondo.Location = new System.Drawing.Point(0, 39);
+            this.pnlFondo.Name = "pnlFondo";
+            this.pnlFondo.Size = new System.Drawing.Size(780, 567);
+            this.pnlFondo.TabIndex = 28;
+            // 
+            // pnlicono
+            // 
+            this.pnlicono.BackColor = System.Drawing.Color.White;
+            this.pnlicono.Controls.Add(this.flowLayoutPanel1);
+            this.pnlicono.Location = new System.Drawing.Point(17, 327);
+            this.pnlicono.Name = "pnlicono";
+            this.pnlicono.Size = new System.Drawing.Size(747, 127);
+            this.pnlicono.TabIndex = 8;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.imgIcono);
+            this.flowLayoutPanel1.Controls.Add(this.imgIcono2);
+            this.flowLayoutPanel1.Controls.Add(this.imgIcono3);
+            this.flowLayoutPanel1.Controls.Add(this.imgIcono4);
+            this.flowLayoutPanel1.Controls.Add(this.imgIcono5);
+            this.flowLayoutPanel1.Controls.Add(this.imgIcono6);
+            this.flowLayoutPanel1.Controls.Add(this.imgIconoBuscar);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 11);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(723, 106);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // imgIcono
+            // 
+            this.imgIcono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgIcono.Image = ((System.Drawing.Image)(resources.GetObject("imgIcono.Image")));
+            this.imgIcono.Location = new System.Drawing.Point(3, 3);
+            this.imgIcono.Name = "imgIcono";
+            this.imgIcono.Size = new System.Drawing.Size(97, 100);
+            this.imgIcono.TabIndex = 0;
+            this.imgIcono.TabStop = false;
+            this.imgIcono.Click += new System.EventHandler(this.imgIcono_Click);
+            // 
+            // imgIcono2
+            // 
+            this.imgIcono2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgIcono2.Image = ((System.Drawing.Image)(resources.GetObject("imgIcono2.Image")));
+            this.imgIcono2.Location = new System.Drawing.Point(106, 3);
+            this.imgIcono2.Name = "imgIcono2";
+            this.imgIcono2.Size = new System.Drawing.Size(97, 100);
+            this.imgIcono2.TabIndex = 1;
+            this.imgIcono2.TabStop = false;
+            this.imgIcono2.Click += new System.EventHandler(this.imgIcono2_Click);
+            // 
+            // imgIcono3
+            // 
+            this.imgIcono3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgIcono3.Image = ((System.Drawing.Image)(resources.GetObject("imgIcono3.Image")));
+            this.imgIcono3.Location = new System.Drawing.Point(209, 3);
+            this.imgIcono3.Name = "imgIcono3";
+            this.imgIcono3.Size = new System.Drawing.Size(97, 100);
+            this.imgIcono3.TabIndex = 3;
+            this.imgIcono3.TabStop = false;
+            this.imgIcono3.Click += new System.EventHandler(this.imgIcono3_Click);
+            // 
+            // imgIcono4
+            // 
+            this.imgIcono4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgIcono4.Image = ((System.Drawing.Image)(resources.GetObject("imgIcono4.Image")));
+            this.imgIcono4.Location = new System.Drawing.Point(312, 3);
+            this.imgIcono4.Name = "imgIcono4";
+            this.imgIcono4.Size = new System.Drawing.Size(97, 100);
+            this.imgIcono4.TabIndex = 4;
+            this.imgIcono4.TabStop = false;
+            this.imgIcono4.Click += new System.EventHandler(this.imgIcono4_Click);
+            // 
+            // imgIcono5
+            // 
+            this.imgIcono5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgIcono5.Image = ((System.Drawing.Image)(resources.GetObject("imgIcono5.Image")));
+            this.imgIcono5.Location = new System.Drawing.Point(415, 3);
+            this.imgIcono5.Name = "imgIcono5";
+            this.imgIcono5.Size = new System.Drawing.Size(97, 100);
+            this.imgIcono5.TabIndex = 5;
+            this.imgIcono5.TabStop = false;
+            this.imgIcono5.Click += new System.EventHandler(this.imgIcono5_Click);
+            // 
+            // imgIcono6
+            // 
+            this.imgIcono6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgIcono6.Image = ((System.Drawing.Image)(resources.GetObject("imgIcono6.Image")));
+            this.imgIcono6.Location = new System.Drawing.Point(518, 3);
+            this.imgIcono6.Name = "imgIcono6";
+            this.imgIcono6.Size = new System.Drawing.Size(97, 100);
+            this.imgIcono6.TabIndex = 6;
+            this.imgIcono6.TabStop = false;
+            this.imgIcono6.Click += new System.EventHandler(this.imgIcono6_Click);
+            // 
+            // imgIconoBuscar
+            // 
+            this.imgIconoBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgIconoBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.imgIconoBuscar.Image = ((System.Drawing.Image)(resources.GetObject("imgIconoBuscar.Image")));
+            this.imgIconoBuscar.Location = new System.Drawing.Point(621, 3);
+            this.imgIconoBuscar.Name = "imgIconoBuscar";
+            this.imgIconoBuscar.Size = new System.Drawing.Size(97, 100);
+            this.imgIconoBuscar.TabIndex = 2;
+            this.imgIconoBuscar.TabStop = false;
+            this.imgIconoBuscar.Click += new System.EventHandler(this.imgIconoBuscar_Click);
             // 
             // pnlRegistro
             // 
@@ -215,6 +344,9 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Controls.Add(this.txtNombreIcono);
+            this.groupBox1.Controls.Add(this.lblNumIcono);
             this.groupBox1.Controls.Add(this.btnVolver);
             this.groupBox1.Controls.Add(this.panel8);
             this.groupBox1.Controls.Add(this.txtEmail);
@@ -231,8 +363,8 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.menuStrip2);
-            this.groupBox1.Controls.Add(this.icono);
-            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.lblAnuncioIcono);
+            this.groupBox1.Controls.Add(this.ptcIconoPass);
             this.groupBox1.Location = new System.Drawing.Point(13, 10);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(721, 285);
@@ -240,18 +372,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del usuario";
             // 
-            // icono
+            // panel4
             // 
-            this.icono.BackColor = System.Drawing.Color.DarkGray;
-            this.icono.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icono.ForeColor = System.Drawing.Color.Black;
-            this.icono.Location = new System.Drawing.Point(539, 41);
-            this.icono.Name = "icono";
-            this.icono.Size = new System.Drawing.Size(114, 124);
-            this.icono.TabIndex = 24;
-            this.icono.Text = "Elije un icono";
-            this.icono.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Location = new System.Drawing.Point(528, 178);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(122, 1);
+            this.panel4.TabIndex = 23;
+            // 
+            // txtNombreIcono
+            // 
+            this.txtNombreIcono.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombreIcono.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNombreIcono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreIcono.Location = new System.Drawing.Point(528, 156);
+            this.txtNombreIcono.Name = "txtNombreIcono";
+            this.txtNombreIcono.Size = new System.Drawing.Size(122, 19);
+            this.txtNombreIcono.TabIndex = 22;
+            this.txtNombreIcono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblNumIcono
+            // 
+            this.lblNumIcono.AutoSize = true;
+            this.lblNumIcono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumIcono.ForeColor = System.Drawing.Color.Black;
+            this.lblNumIcono.Location = new System.Drawing.Point(506, 135);
+            this.lblNumIcono.Name = "lblNumIcono";
+            this.lblNumIcono.Size = new System.Drawing.Size(172, 16);
+            this.lblNumIcono.TabIndex = 26;
+            this.lblNumIcono.Text = "Nombre del icono único";
             // 
             // btnVolver
             // 
@@ -265,6 +414,7 @@
             this.btnVolver.TabIndex = 23;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // panel8
             // 
@@ -412,119 +562,19 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Correo electrónico:";
             // 
-            // pictureBox2
+            // menuStrip2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(534, 36);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(124, 133);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 25;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pnlFondo
-            // 
-            this.pnlFondo.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlFondo.Controls.Add(this.pnlicono);
-            this.pnlFondo.Controls.Add(this.pnlRegistro);
-            this.pnlFondo.Location = new System.Drawing.Point(0, 39);
-            this.pnlFondo.Name = "pnlFondo";
-            this.pnlFondo.Size = new System.Drawing.Size(780, 496);
-            this.pnlFondo.TabIndex = 8;
-            this.pnlFondo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlFondo_Paint);
-            // 
-            // pnlicono
-            // 
-            this.pnlicono.BackColor = System.Drawing.Color.White;
-            this.pnlicono.Controls.Add(this.flowLayoutPanel1);
-            this.pnlicono.Location = new System.Drawing.Point(17, 327);
-            this.pnlicono.Name = "pnlicono";
-            this.pnlicono.Size = new System.Drawing.Size(747, 127);
-            this.pnlicono.TabIndex = 8;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox3);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox4);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox6);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox7);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox8);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox9);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox5);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 11);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(723, 106);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(97, 100);
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(106, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(97, 100);
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(209, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(97, 100);
-            this.pictureBox6.TabIndex = 3;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(312, 3);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(97, 100);
-            this.pictureBox7.TabIndex = 4;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(415, 3);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(97, 100);
-            this.pictureBox8.TabIndex = 5;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(518, 3);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(97, 100);
-            this.pictureBox9.TabIndex = 6;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(621, 3);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(97, 100);
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
+            this.menuStrip2.AutoSize = false;
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGuardar,
+            this.btnModificar});
+            this.menuStrip2.Location = new System.Drawing.Point(25, 230);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(188, 41);
+            this.menuStrip2.TabIndex = 22;
+            this.menuStrip2.Text = "menuStrip2";
             // 
             // btnGuardar
             // 
@@ -543,60 +593,80 @@
             this.btnModificar.Size = new System.Drawing.Size(96, 37);
             this.btnModificar.Text = "Modificar";
             // 
-            // menuStrip2
+            // lblAnuncioIcono
             // 
-            this.menuStrip2.AutoSize = false;
-            this.menuStrip2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnGuardar,
-            this.btnModificar});
-            this.menuStrip2.Location = new System.Drawing.Point(25, 230);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(188, 41);
-            this.menuStrip2.TabIndex = 22;
-            this.menuStrip2.Text = "menuStrip2";
+            this.lblAnuncioIcono.BackColor = System.Drawing.Color.DarkGray;
+            this.lblAnuncioIcono.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAnuncioIcono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnuncioIcono.ForeColor = System.Drawing.Color.Black;
+            this.lblAnuncioIcono.Location = new System.Drawing.Point(531, 22);
+            this.lblAnuncioIcono.Name = "lblAnuncioIcono";
+            this.lblAnuncioIcono.Size = new System.Drawing.Size(119, 106);
+            this.lblAnuncioIcono.TabIndex = 24;
+            this.lblAnuncioIcono.Text = "Elije un icono";
+            this.lblAnuncioIcono.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAnuncioIcono.Click += new System.EventHandler(this.lblAnuncioIcono_Click);
+            // 
+            // ptcIconoPass
+            // 
+            this.ptcIconoPass.Location = new System.Drawing.Point(528, 17);
+            this.ptcIconoPass.Name = "ptcIconoPass";
+            this.ptcIconoPass.Size = new System.Drawing.Size(124, 115);
+            this.ptcIconoPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptcIconoPass.TabIndex = 25;
+            this.ptcIconoPass.TabStop = false;
+            this.ptcIconoPass.Click += new System.EventHandler(this.ptcIconoPass_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 150F;
+            this.Column1.HeaderText = "";
+            this.Column1.Image = ((System.Drawing.Image)(resources.GetObject("Column1.Image")));
+            this.Column1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 45;
             // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(780, 535);
+            this.ClientSize = new System.Drawing.Size(780, 606);
             this.Controls.Add(this.pnlFondo);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdUsuarios);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MainMenuStrip = this.menuStrip2;
             this.Name = "FormUsuarios";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormUsuarios_Load);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcCrud)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.pnlRegistro.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUsuarios)).EndInit();
             this.pnlFondo.ResumeLayout(false);
             this.pnlicono.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIconoBuscar)).EndInit();
+            this.pnlRegistro.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcIconoPass)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -609,13 +679,25 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptcCrud;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdUsuarios;
+        private System.Windows.Forms.Panel pnlFondo;
+        private System.Windows.Forms.Panel pnlicono;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.PictureBox imgIcono;
+        private System.Windows.Forms.PictureBox imgIcono2;
+        private System.Windows.Forms.PictureBox imgIcono3;
+        private System.Windows.Forms.PictureBox imgIcono4;
+        private System.Windows.Forms.PictureBox imgIcono5;
+        private System.Windows.Forms.PictureBox imgIcono6;
+        private System.Windows.Forms.PictureBox imgIconoBuscar;
         private System.Windows.Forms.Panel pnlRegistro;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label icono;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txtNombreIcono;
+        private System.Windows.Forms.Label lblNumIcono;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox txtEmail;
@@ -631,20 +713,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel pnlFondo;
-        private System.Windows.Forms.Panel pnlicono;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem btnGuardar;
         private System.Windows.Forms.ToolStripMenuItem btnModificar;
+        private System.Windows.Forms.Label lblAnuncioIcono;
+        private System.Windows.Forms.PictureBox ptcIconoPass;
+        private System.Windows.Forms.DataGridViewImageColumn Column1;
     }
 }
 

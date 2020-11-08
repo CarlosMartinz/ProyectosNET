@@ -10,7 +10,5 @@ namespace SistemaFarmacia.Data
 
         public static string conexion = @"Data source=DESKTOP-A1UPMCJ\SQLOCALDB;Initial Catalog=BaseFarmacia;Integrated Security=true";
 
-
-
     }
 }
