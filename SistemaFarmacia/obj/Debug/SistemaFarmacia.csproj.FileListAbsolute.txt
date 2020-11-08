@@ -1,0 +1,9 @@
+C:\Users\Charly\Source\Repos\USIS044220\ProyectosNET\SistemaFarmacia\bin\Debug\SistemaFarmacia.exe
+C:\Users\Charly\Source\Repos\USIS044220\ProyectosNET\SistemaFarmacia\bin\Debug\SistemaFarmacia.pdb
+C:\Users\Charly\Source\Repos\USIS044220\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.csprojAssemblyReference.cache
+C:\Users\Charly\Source\Repos\USIS044220\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.FormUsuarios.resources
+C:\Users\Charly\Source\Repos\USIS044220\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.Properties.Resources.resources
+C:\Users\Charly\Source\Repos\USIS044220\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.csproj.GenerateResource.cache
+C:\Users\Charly\Source\Repos\USIS044220\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.csproj.CoreCompileInputs.cache
+C:\Users\Charly\Source\Repos\USIS044220\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.exe
+C:\Users\Charly\Source\Repos\USIS044220\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.pdb
