@@ -23,6 +23,7 @@ namespace SistemaFarmacia
         {
             pnlFondo.Visible = false;
             pnlicono.Visible = false;
+            pnlAyuda.Visible = false;
             mostrar();
         }
 
@@ -103,7 +104,7 @@ namespace SistemaFarmacia
                 grdUsuarios.Columns[3].Visible = true;
                 grdUsuarios.Columns[4].Visible = true;
                 grdUsuarios.Columns[5].Visible = false;
-                grdUsuarios.Columns[6].Visible = true;
+                grdUsuarios.Columns[6].Visible = false;
                 grdUsuarios.Columns[7].Visible = true;
             }
             catch(Exception ex)
@@ -225,7 +226,16 @@ namespace SistemaFarmacia
             pnlFondo.Visible = false;
         }
 
-        
+        //MUestra panel de ayuda
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            pnlAyuda.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            pnlAyuda.Visible = false;
+        }
     }
 
 }
