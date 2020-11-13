@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuarios));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ptcCrud = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,6 +40,7 @@
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.grdUsuarios = new System.Windows.Forms.DataGridView();
@@ -95,12 +96,16 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptcCrud)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.menuStrip3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdUsuarios)).BeginInit();
             this.pnlFondo.SuspendLayout();
             this.pnlRegistro.SuspendLayout();
@@ -205,6 +210,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -212,6 +218,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(780, 39);
             this.panel1.TabIndex = 3;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(51, 39);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
             // 
             // button1
             // 
@@ -230,13 +247,13 @@
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(638, 39);
+            this.label1.Size = new System.Drawing.Size(780, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "USUARIOS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,8 +262,8 @@
             // 
             this.grdUsuarios.AllowUserToAddRows = false;
             this.grdUsuarios.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.grdUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.grdUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.grdUsuarios.BackgroundColor = System.Drawing.Color.White;
             this.grdUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -256,12 +273,14 @@
             this.grdUsuarios.Location = new System.Drawing.Point(0, 85);
             this.grdUsuarios.Name = "grdUsuarios";
             this.grdUsuarios.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.grdUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.grdUsuarios.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.grdUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.grdUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdUsuarios.Size = new System.Drawing.Size(626, 475);
             this.grdUsuarios.TabIndex = 27;
+            this.grdUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsuarios_CellDoubleClick);
             // 
             // Column1
             // 
@@ -278,27 +297,30 @@
             this.pnlFondo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFondo.BackColor = System.Drawing.Color.DarkGray;
+            this.pnlFondo.BackColor = System.Drawing.Color.Gray;
             this.pnlFondo.Controls.Add(this.pnlRegistro);
             this.pnlFondo.Controls.Add(this.pnlicono);
-            this.pnlFondo.Location = new System.Drawing.Point(0, 39);
+            this.pnlFondo.Location = new System.Drawing.Point(0, 85);
             this.pnlFondo.Name = "pnlFondo";
-            this.pnlFondo.Size = new System.Drawing.Size(780, 521);
+            this.pnlFondo.Size = new System.Drawing.Size(780, 475);
             this.pnlFondo.TabIndex = 28;
             // 
             // pnlRegistro
             // 
             this.pnlRegistro.BackColor = System.Drawing.Color.White;
             this.pnlRegistro.Controls.Add(this.groupBox1);
-            this.pnlRegistro.Location = new System.Drawing.Point(17, 14);
+            this.pnlRegistro.Location = new System.Drawing.Point(17, 6);
             this.pnlRegistro.Name = "pnlRegistro";
-            this.pnlRegistro.Size = new System.Drawing.Size(747, 307);
+            this.pnlRegistro.Size = new System.Drawing.Size(747, 341);
             this.pnlRegistro.TabIndex = 7;
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.panel10);
+            this.groupBox1.Controls.Add(this.txtTelefono);
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.txtNombreIcono);
             this.groupBox1.Controls.Add(this.lblNumIcono);
@@ -322,7 +344,7 @@
             this.groupBox1.Controls.Add(this.ptcIconoPass);
             this.groupBox1.Location = new System.Drawing.Point(13, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(721, 285);
+            this.groupBox1.Size = new System.Drawing.Size(721, 320);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del usuario";
@@ -363,7 +385,7 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.ForeColor = System.Drawing.Color.Black;
-            this.btnVolver.Location = new System.Drawing.Point(395, 230);
+            this.btnVolver.Location = new System.Drawing.Point(395, 269);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(153, 41);
             this.btnVolver.TabIndex = 23;
@@ -374,7 +396,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Black;
-            this.panel8.Location = new System.Drawing.Point(171, 174);
+            this.panel8.Location = new System.Drawing.Point(171, 213);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(275, 1);
             this.panel8.TabIndex = 21;
@@ -384,7 +406,7 @@
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(171, 152);
+            this.txtEmail.Location = new System.Drawing.Point(171, 191);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(275, 19);
             this.txtEmail.TabIndex = 20;
@@ -392,7 +414,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Black;
-            this.panel7.Location = new System.Drawing.Point(171, 131);
+            this.panel7.Location = new System.Drawing.Point(171, 170);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(275, 1);
             this.panel7.TabIndex = 19;
@@ -402,7 +424,7 @@
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(171, 109);
+            this.txtPass.Location = new System.Drawing.Point(171, 148);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(275, 19);
             this.txtPass.TabIndex = 18;
@@ -410,7 +432,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Black;
-            this.panel6.Location = new System.Drawing.Point(171, 86);
+            this.panel6.Location = new System.Drawing.Point(171, 125);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(275, 1);
             this.panel6.TabIndex = 17;
@@ -420,7 +442,7 @@
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(171, 64);
+            this.txtUsuario.Location = new System.Drawing.Point(171, 103);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(275, 19);
             this.txtUsuario.TabIndex = 16;
@@ -434,7 +456,7 @@
             "Cajero (Solo esta autorizado a realizar ventas)",
             "Gerente (Tiene acceso a ventas y control de inventario)",
             "Administrador (Control total)"});
-            this.cboRol.Location = new System.Drawing.Point(169, 190);
+            this.cboRol.Location = new System.Drawing.Point(169, 229);
             this.cboRol.Name = "cboRol";
             this.cboRol.Size = new System.Drawing.Size(379, 24);
             this.cboRol.TabIndex = 15;
@@ -445,7 +467,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(126, 196);
+            this.label4.Location = new System.Drawing.Point(126, 235);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 16);
             this.label4.TabIndex = 14;
@@ -487,7 +509,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(71, 112);
+            this.label7.Location = new System.Drawing.Point(71, 151);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 16);
             this.label7.TabIndex = 6;
@@ -499,7 +521,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(96, 67);
+            this.label3.Location = new System.Drawing.Point(96, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 16);
             this.label3.TabIndex = 2;
@@ -511,7 +533,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(22, 155);
+            this.label6.Location = new System.Drawing.Point(22, 194);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 16);
             this.label6.TabIndex = 5;
@@ -525,7 +547,7 @@
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnGuardar,
             this.btnModificar});
-            this.menuStrip2.Location = new System.Drawing.Point(25, 230);
+            this.menuStrip2.Location = new System.Drawing.Point(25, 269);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(188, 41);
             this.menuStrip2.TabIndex = 22;
@@ -576,9 +598,9 @@
             // 
             this.pnlicono.BackColor = System.Drawing.Color.White;
             this.pnlicono.Controls.Add(this.flowLayoutPanel1);
-            this.pnlicono.Location = new System.Drawing.Point(17, 327);
+            this.pnlicono.Location = new System.Drawing.Point(17, 353);
             this.pnlicono.Name = "pnlicono";
-            this.pnlicono.Size = new System.Drawing.Size(747, 127);
+            this.pnlicono.Size = new System.Drawing.Size(747, 110);
             this.pnlicono.TabIndex = 8;
             // 
             // flowLayoutPanel1
@@ -590,7 +612,7 @@
             this.flowLayoutPanel1.Controls.Add(this.imgIcono5);
             this.flowLayoutPanel1.Controls.Add(this.imgIcono6);
             this.flowLayoutPanel1.Controls.Add(this.imgIconoBuscar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 11);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(723, 106);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -855,6 +877,36 @@
             this.label5.Text = "Ayuda";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.Black;
+            this.panel10.Location = new System.Drawing.Point(171, 85);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(275, 1);
+            this.panel10.TabIndex = 29;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(171, 63);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(275, 19);
+            this.txtTelefono.TabIndex = 28;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(88, 65);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 16);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Telefono:";
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -883,6 +935,7 @@
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdUsuarios)).EndInit();
             this.pnlFondo.ResumeLayout(false);
             this.pnlRegistro.ResumeLayout(false);
@@ -976,6 +1029,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Label label14;
     }
 }
 

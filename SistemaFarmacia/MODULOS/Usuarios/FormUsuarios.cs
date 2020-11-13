@@ -55,9 +55,10 @@ namespace SistemaFarmacia
 
                     //Llama procedimiento de la BD 'insertarUsuario'
                     SqlCommand cmd = new SqlCommand();
-                    cmd = new SqlCommand("insertarUsuario", con);
+                    cmd = new SqlCommand("insertar_Usuarios", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                    cmd.Parameters.AddWithValue("@telefono", txtTelefono.Text);
                     cmd.Parameters.AddWithValue("@login", txtUsuario.Text);
                     cmd.Parameters.AddWithValue("@password", txtPass.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
@@ -105,7 +106,8 @@ namespace SistemaFarmacia
                 grdUsuarios.Columns[4].Visible = true;
                 grdUsuarios.Columns[5].Visible = false;
                 grdUsuarios.Columns[6].Visible = false;
-                grdUsuarios.Columns[7].Visible = true;
+                grdUsuarios.Columns[7].Visible = false;
+                grdUsuarios.Columns[8].Visible = true;
             }
             catch(Exception ex)
             {
@@ -235,6 +237,11 @@ namespace SistemaFarmacia
         private void button2_Click(object sender, EventArgs e)
         {
             pnlAyuda.Visible = false;
+        }
+
+        private void grdUsuarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 
