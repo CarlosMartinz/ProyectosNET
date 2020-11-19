@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuarios));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ptcCrud = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -44,10 +44,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.grdUsuarios = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlFondo = new System.Windows.Forms.Panel();
             this.pnlRegistro = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblidUsuario = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtNombreIcono = new System.Windows.Forms.TextBox();
             this.lblNumIcono = new System.Windows.Forms.Label();
@@ -96,9 +101,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptcCrud)).BeginInit();
             this.panel2.SuspendLayout();
@@ -262,35 +264,36 @@
             // 
             this.grdUsuarios.AllowUserToAddRows = false;
             this.grdUsuarios.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.grdUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            this.grdUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.grdUsuarios.BackgroundColor = System.Drawing.Color.White;
             this.grdUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
+            this.eliminar});
             this.grdUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdUsuarios.GridColor = System.Drawing.Color.Gainsboro;
             this.grdUsuarios.Location = new System.Drawing.Point(0, 85);
             this.grdUsuarios.Name = "grdUsuarios";
             this.grdUsuarios.ReadOnly = true;
             this.grdUsuarios.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.grdUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            this.grdUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.grdUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdUsuarios.Size = new System.Drawing.Size(626, 475);
             this.grdUsuarios.TabIndex = 27;
+            this.grdUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsuarios_CellClick);
             this.grdUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsuarios_CellDoubleClick);
             // 
-            // Column1
+            // eliminar
             // 
-            this.Column1.FillWeight = 150F;
-            this.Column1.HeaderText = "";
-            this.Column1.Image = ((System.Drawing.Image)(resources.GetObject("Column1.Image")));
-            this.Column1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 45;
+            this.eliminar.FillWeight = 150F;
+            this.eliminar.HeaderText = "";
+            this.eliminar.Image = ((System.Drawing.Image)(resources.GetObject("eliminar.Image")));
+            this.eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.eliminar.Name = "eliminar";
+            this.eliminar.ReadOnly = true;
+            this.eliminar.Width = 45;
             // 
             // pnlFondo
             // 
@@ -300,9 +303,9 @@
             this.pnlFondo.BackColor = System.Drawing.Color.Gray;
             this.pnlFondo.Controls.Add(this.pnlRegistro);
             this.pnlFondo.Controls.Add(this.pnlicono);
-            this.pnlFondo.Location = new System.Drawing.Point(0, 85);
+            this.pnlFondo.Location = new System.Drawing.Point(0, 39);
             this.pnlFondo.Name = "pnlFondo";
-            this.pnlFondo.Size = new System.Drawing.Size(780, 475);
+            this.pnlFondo.Size = new System.Drawing.Size(780, 521);
             this.pnlFondo.TabIndex = 28;
             // 
             // pnlRegistro
@@ -311,13 +314,15 @@
             this.pnlRegistro.Controls.Add(this.groupBox1);
             this.pnlRegistro.Location = new System.Drawing.Point(17, 6);
             this.pnlRegistro.Name = "pnlRegistro";
-            this.pnlRegistro.Size = new System.Drawing.Size(747, 341);
+            this.pnlRegistro.Size = new System.Drawing.Size(747, 359);
             this.pnlRegistro.TabIndex = 7;
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.lblidUsuario);
             this.groupBox1.Controls.Add(this.panel10);
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label14);
@@ -344,10 +349,60 @@
             this.groupBox1.Controls.Add(this.ptcIconoPass);
             this.groupBox1.Location = new System.Drawing.Point(13, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(721, 320);
+            this.groupBox1.Size = new System.Drawing.Size(721, 340);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del usuario";
+            // 
+            // label16
+            // 
+            this.label16.ForeColor = System.Drawing.Color.Silver;
+            this.label16.Location = new System.Drawing.Point(171, 221);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(275, 13);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "Sirve para recuperar contraseña en caso de olvido";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label16.Visible = false;
+            // 
+            // lblidUsuario
+            // 
+            this.lblidUsuario.AutoSize = true;
+            this.lblidUsuario.Location = new System.Drawing.Point(603, 200);
+            this.lblidUsuario.Name = "lblidUsuario";
+            this.lblidUsuario.Size = new System.Drawing.Size(0, 13);
+            this.lblidUsuario.TabIndex = 30;
+            this.lblidUsuario.Visible = false;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.Black;
+            this.panel10.Location = new System.Drawing.Point(171, 85);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(275, 1);
+            this.panel10.TabIndex = 29;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(171, 63);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(275, 19);
+            this.txtTelefono.TabIndex = 28;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(88, 65);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 16);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Telefono:";
             // 
             // panel4
             // 
@@ -361,6 +416,7 @@
             // 
             this.txtNombreIcono.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombreIcono.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNombreIcono.Enabled = false;
             this.txtNombreIcono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreIcono.Location = new System.Drawing.Point(528, 156);
             this.txtNombreIcono.Name = "txtNombreIcono";
@@ -385,9 +441,9 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.ForeColor = System.Drawing.Color.Black;
-            this.btnVolver.Location = new System.Drawing.Point(395, 269);
+            this.btnVolver.Location = new System.Drawing.Point(436, 287);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(153, 41);
+            this.btnVolver.Size = new System.Drawing.Size(94, 41);
             this.btnVolver.TabIndex = 23;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
@@ -456,9 +512,9 @@
             "Cajero (Solo esta autorizado a realizar ventas)",
             "Gerente (Tiene acceso a ventas y control de inventario)",
             "Administrador (Control total)"});
-            this.cboRol.Location = new System.Drawing.Point(169, 229);
+            this.cboRol.Location = new System.Drawing.Point(169, 247);
             this.cboRol.Name = "cboRol";
-            this.cboRol.Size = new System.Drawing.Size(379, 24);
+            this.cboRol.Size = new System.Drawing.Size(361, 24);
             this.cboRol.TabIndex = 15;
             // 
             // label4
@@ -467,7 +523,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(126, 235);
+            this.label4.Location = new System.Drawing.Point(126, 253);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 16);
             this.label4.TabIndex = 14;
@@ -532,7 +588,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
             this.label6.Location = new System.Drawing.Point(22, 194);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 16);
@@ -542,33 +598,37 @@
             // menuStrip2
             // 
             this.menuStrip2.AutoSize = false;
-            this.menuStrip2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStrip2.BackColor = System.Drawing.Color.White;
             this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnGuardar,
             this.btnModificar});
-            this.menuStrip2.Location = new System.Drawing.Point(25, 269);
+            this.menuStrip2.Location = new System.Drawing.Point(25, 287);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(188, 41);
+            this.menuStrip2.Size = new System.Drawing.Size(395, 41);
             this.menuStrip2.TabIndex = 22;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.btnGuardar.Size = new System.Drawing.Size(83, 37);
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Size = new System.Drawing.Size(184, 37);
+            this.btnGuardar.Text = "Guardar (Control + S)";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnModificar
             // 
+            this.btnModificar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.btnModificar.Size = new System.Drawing.Size(96, 37);
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+            this.btnModificar.Size = new System.Drawing.Size(203, 37);
+            this.btnModificar.Text = "Modificar (Control + M)";
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lblAnuncioIcono
             // 
@@ -576,9 +636,9 @@
             this.lblAnuncioIcono.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAnuncioIcono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnuncioIcono.ForeColor = System.Drawing.Color.Black;
-            this.lblAnuncioIcono.Location = new System.Drawing.Point(531, 22);
+            this.lblAnuncioIcono.Location = new System.Drawing.Point(528, 17);
             this.lblAnuncioIcono.Name = "lblAnuncioIcono";
-            this.lblAnuncioIcono.Size = new System.Drawing.Size(119, 106);
+            this.lblAnuncioIcono.Size = new System.Drawing.Size(124, 114);
             this.lblAnuncioIcono.TabIndex = 24;
             this.lblAnuncioIcono.Text = "Elije un icono";
             this.lblAnuncioIcono.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -598,9 +658,9 @@
             // 
             this.pnlicono.BackColor = System.Drawing.Color.White;
             this.pnlicono.Controls.Add(this.flowLayoutPanel1);
-            this.pnlicono.Location = new System.Drawing.Point(17, 353);
+            this.pnlicono.Location = new System.Drawing.Point(16, 382);
             this.pnlicono.Name = "pnlicono";
-            this.pnlicono.Size = new System.Drawing.Size(747, 110);
+            this.pnlicono.Size = new System.Drawing.Size(748, 110);
             this.pnlicono.TabIndex = 8;
             // 
             // flowLayoutPanel1
@@ -877,36 +937,6 @@
             this.label5.Text = "Ayuda";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.Black;
-            this.panel10.Location = new System.Drawing.Point(171, 85);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(275, 1);
-            this.panel10.TabIndex = 29;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(171, 63);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(275, 19);
-            this.txtTelefono.TabIndex = 28;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(88, 65);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 16);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "Telefono:";
-            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1010,7 +1040,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnModificar;
         private System.Windows.Forms.Label lblAnuncioIcono;
         private System.Windows.Forms.PictureBox ptcIconoPass;
-        private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.MenuStrip menuStrip3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.Panel pnlAyuda;
@@ -1033,6 +1062,9 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridViewImageColumn eliminar;
+        private System.Windows.Forms.Label lblidUsuario;
+        private System.Windows.Forms.Label label16;
     }
 }
 
