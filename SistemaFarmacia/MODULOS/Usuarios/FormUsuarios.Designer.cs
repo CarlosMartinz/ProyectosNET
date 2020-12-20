@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuarios));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ptcCrud = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,7 +45,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.grdUsuarios = new System.Windows.Forms.DataGridView();
-            this.eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlFondo = new System.Windows.Forms.Panel();
             this.pnlRegistro = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -105,6 +104,7 @@
             this.errorLetras = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNumero = new System.Windows.Forms.ErrorProvider(this.components);
             this.abrirExplorador = new System.Windows.Forms.OpenFileDialog();
+            this.eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptcCrud)).BeginInit();
             this.panel2.SuspendLayout();
@@ -149,9 +149,10 @@
             // 
             this.ptcCrud.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ptcCrud.Image = ((System.Drawing.Image)(resources.GetObject("ptcCrud.Image")));
-            this.ptcCrud.Location = new System.Drawing.Point(16, 169);
+            this.ptcCrud.Location = new System.Drawing.Point(0, 164);
             this.ptcCrud.Name = "ptcCrud";
-            this.ptcCrud.Size = new System.Drawing.Size(126, 135);
+            this.ptcCrud.Size = new System.Drawing.Size(151, 140);
+            this.ptcCrud.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptcCrud.TabIndex = 0;
             this.ptcCrud.TabStop = false;
             this.ptcCrud.Click += new System.EventHandler(this.ptcCrud_Click);
@@ -270,9 +271,11 @@
             // 
             this.grdUsuarios.AllowUserToAddRows = false;
             this.grdUsuarios.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.grdUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.grdUsuarios.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.grdUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grdUsuarios.BackgroundColor = System.Drawing.Color.White;
+            this.grdUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.eliminar});
@@ -282,30 +285,17 @@
             this.grdUsuarios.Name = "grdUsuarios";
             this.grdUsuarios.ReadOnly = true;
             this.grdUsuarios.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.grdUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.grdUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.grdUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdUsuarios.Size = new System.Drawing.Size(626, 475);
             this.grdUsuarios.TabIndex = 27;
             this.grdUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsuarios_CellClick);
             this.grdUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsuarios_CellDoubleClick);
             // 
-            // eliminar
-            // 
-            this.eliminar.FillWeight = 150F;
-            this.eliminar.HeaderText = "";
-            this.eliminar.Image = ((System.Drawing.Image)(resources.GetObject("eliminar.Image")));
-            this.eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.eliminar.Name = "eliminar";
-            this.eliminar.ReadOnly = true;
-            this.eliminar.Width = 45;
-            // 
             // pnlFondo
             // 
-            this.pnlFondo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFondo.BackColor = System.Drawing.Color.Gray;
             this.pnlFondo.Controls.Add(this.pnlRegistro);
             this.pnlFondo.Controls.Add(this.pnlicono);
@@ -962,6 +952,17 @@
             // 
             this.abrirExplorador.FileName = "openFileDialog1";
             // 
+            // eliminar
+            // 
+            this.eliminar.FillWeight = 150F;
+            this.eliminar.HeaderText = "";
+            this.eliminar.Image = ((System.Drawing.Image)(resources.GetObject("eliminar.Image")));
+            this.eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.eliminar.MinimumWidth = 45;
+            this.eliminar.Name = "eliminar";
+            this.eliminar.ReadOnly = true;
+            this.eliminar.Width = 45;
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1089,12 +1090,12 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridViewImageColumn eliminar;
         private System.Windows.Forms.Label lblidUsuario;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ErrorProvider errorLetras;
         private System.Windows.Forms.ErrorProvider errorNumero;
         private System.Windows.Forms.OpenFileDialog abrirExplorador;
+        private System.Windows.Forms.DataGridViewImageColumn eliminar;
     }
 }
 
