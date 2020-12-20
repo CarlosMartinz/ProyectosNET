@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuarios));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ptcCrud = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -101,6 +102,9 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.errorLetras = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorNumero = new System.Windows.Forms.ErrorProvider(this.components);
+            this.abrirExplorador = new System.Windows.Forms.OpenFileDialog();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptcCrud)).BeginInit();
             this.panel2.SuspendLayout();
@@ -128,6 +132,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorLetras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNumero)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -264,8 +270,8 @@
             // 
             this.grdUsuarios.AllowUserToAddRows = false;
             this.grdUsuarios.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            this.grdUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.grdUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.grdUsuarios.BackgroundColor = System.Drawing.Color.White;
             this.grdUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -276,9 +282,9 @@
             this.grdUsuarios.Name = "grdUsuarios";
             this.grdUsuarios.ReadOnly = true;
             this.grdUsuarios.RowHeadersVisible = false;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.grdUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.grdUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.grdUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdUsuarios.Size = new System.Drawing.Size(626, 475);
             this.grdUsuarios.TabIndex = 27;
@@ -363,7 +369,6 @@
             this.label16.TabIndex = 31;
             this.label16.Text = "Sirve para recuperar contraseña en caso de olvido";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label16.Visible = false;
             // 
             // lblidUsuario
             // 
@@ -388,9 +393,11 @@
             this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.Location = new System.Drawing.Point(171, 63);
+            this.txtTelefono.MaxLength = 9;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(275, 19);
             this.txtTelefono.TabIndex = 28;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label14
             // 
@@ -463,6 +470,7 @@
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(171, 191);
+            this.txtEmail.MaxLength = 180;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(275, 19);
             this.txtEmail.TabIndex = 20;
@@ -481,9 +489,11 @@
             this.txtPass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Location = new System.Drawing.Point(171, 148);
+            this.txtPass.MaxLength = 6;
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(275, 19);
             this.txtPass.TabIndex = 18;
+            this.txtPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass_KeyPress);
             // 
             // panel6
             // 
@@ -499,6 +509,7 @@
             this.txtUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(171, 103);
+            this.txtUsuario.MaxLength = 70;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(275, 19);
             this.txtUsuario.TabIndex = 16;
@@ -555,9 +566,11 @@
             this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(171, 20);
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(275, 19);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label7
             // 
@@ -588,7 +601,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(22, 194);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 16);
@@ -937,6 +950,18 @@
             this.label5.Text = "Ayuda";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // errorLetras
+            // 
+            this.errorLetras.ContainerControl = this;
+            // 
+            // errorNumero
+            // 
+            this.errorNumero.ContainerControl = this;
+            // 
+            // abrirExplorador
+            // 
+            this.abrirExplorador.FileName = "openFileDialog1";
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -989,6 +1014,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorLetras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNumero)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1065,6 +1092,9 @@
         private System.Windows.Forms.DataGridViewImageColumn eliminar;
         private System.Windows.Forms.Label lblidUsuario;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ErrorProvider errorLetras;
+        private System.Windows.Forms.ErrorProvider errorNumero;
+        private System.Windows.Forms.OpenFileDialog abrirExplorador;
     }
 }
 

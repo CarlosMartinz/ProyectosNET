@@ -25,3 +25,12 @@ C:\Users\Charly\Documents\GitHub\Escritorio\USIS044220\ProyectosNET\SistemaFarma
 C:\Users\Charly\Documents\GitHub\Escritorio\USIS044220\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.csproj.CoreCompileInputs.cache
 C:\Users\Charly\Documents\GitHub\Escritorio\USIS044220\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.exe
 C:\Users\Charly\Documents\GitHub\Escritorio\USIS044220\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.pdb
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\bin\Debug\SistemaFarmacia.exe
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\bin\Debug\SistemaFarmacia.pdb
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.csprojAssemblyReference.cache
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.FormUsuarios.resources
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.Properties.Resources.resources
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.csproj.GenerateResource.cache
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.csproj.CoreCompileInputs.cache
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.exe
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.pdb

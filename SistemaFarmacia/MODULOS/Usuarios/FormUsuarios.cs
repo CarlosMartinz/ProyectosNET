@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -75,7 +75,7 @@ namespace SistemaFarmacia
                     string estado = "Activo";
 
                     //transforma el binario a un formato de sql img
-                    System.IO.MemoryStream imag = new System.IO.MemoryStream();
+                    MemoryStream imag = new MemoryStream();
                     ptcIconoPass.Image.Save(imag, ptcIconoPass.Image.RawFormat);
 
                     cmd.Parameters.AddWithValue("@icono", imag.GetBuffer());
@@ -241,7 +241,7 @@ namespace SistemaFarmacia
                     cmd.Parameters.AddWithValue("@rol", cboRol.Text);
 
                     //transforma el binario a un formato de sql img
-                    System.IO.MemoryStream imag = new System.IO.MemoryStream();
+                    MemoryStream imag = new MemoryStream();
                     ptcIconoPass.Image.Save(imag, ptcIconoPass.Image.RawFormat);
 
                     cmd.Parameters.AddWithValue("@icono", imag.GetBuffer());
@@ -399,7 +399,21 @@ namespace SistemaFarmacia
 
         private void imgIconoBuscar_Click(object sender, EventArgs e)
         {
-
+            abrirExplorador.InitialDirectory = "";
+            abrirExplorador.Filter = "Imagenes|*.jpg;*.png";
+            abrirExplorador.FilterIndex = 2;
+            abrirExplorador.Title = "Cargador de Imagenes";
+            if (abrirExplorador.ShowDialog() == DialogResult.OK)
+            {
+                ptcIconoPass.BackgroundImage = null;
+                ptcIconoPass.Image = new Bitmap(abrirExplorador.FileName);
+                ptcIconoPass.SizeMode = PictureBoxSizeMode.Zoom;
+                txtNombreIcono.Text = Path.GetFileName(abrirExplorador.FileName);
+                ptcIconoPass.Visible = true;
+                txtNombreIcono.Visible = true;
+                pnlicono.Visible = false;
+                lblAnuncioIcono.Visible = false; 
+            }
         }
 
 
@@ -418,10 +432,10 @@ namespace SistemaFarmacia
             txtUsuario.Text = "";
             txtPass.Text = "";
             txtEmail.Text = "";
-            cboRol.SelectedItem = "";
+            cboRol.SelectedIndex = 0;
             txtNombreIcono.Text = "";
             lblAnuncioIcono.Visible = true;
-            
+
             btnGuardar.Visible = true;
             btnGuardar.Enabled = true;
             
@@ -449,6 +463,37 @@ namespace SistemaFarmacia
         private void button2_Click(object sender, EventArgs e)
         {
             pnlAyuda.Visible = false;
+        }
+
+        //validacion de los textbox
+        private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && e.KeyChar != (char)Keys.Space)
+            {
+                errorNumero.SetError(txtPass, "Solo ingresar numeros");
+                e.Handled = true;
+            }
+            else errorNumero.Clear();
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && e.KeyChar != (char)Keys.Space && e.KeyChar == 32)
+            {
+                errorNumero.SetError(txtTelefono, "Solo ingresar numeros");
+                e.Handled = true;
+            }
+            else errorNumero.Clear();
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && e.KeyChar != (char)Keys.Space)
+            {
+                errorLetras.SetError(txtNombre, "Solo ingresar letras");
+                e.Handled = true;
+            }
+            else errorLetras.Clear();
         }
     }
 
