@@ -54,42 +54,49 @@ namespace SistemaFarmacia
             }
             else if (txtNombre.Text != "" && txtUsuario.Text != "" && txtPass.Text != "" && txtTelefono.Text != "" && cboRol.Text != "")
             {
-                try
+                if (txtNombreIcono.Text != "")
                 {
-                    SqlConnection con = new SqlConnection();
-                    //Data 'Carpeta', db_conexion 'Clase', conexion 'proceso'
-                    con.ConnectionString = Data.db_conexion.conexion;
-                    con.Open();
+                    try
+                    {
+                        SqlConnection con = new SqlConnection();
+                        //Data 'Carpeta', db_conexion 'Clase', conexion 'proceso'
+                        con.ConnectionString = Data.db_conexion.conexion;
+                        con.Open();
 
-                    //Llama procedimiento de la BD 'insertarUsuario'
-                    SqlCommand cmd = new SqlCommand();
-                    cmd = new SqlCommand("insertar_Usuarios", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    cmd.Parameters.AddWithValue("@telefono", txtTelefono.Text);
-                    cmd.Parameters.AddWithValue("@login", txtUsuario.Text);
-                    cmd.Parameters.AddWithValue("@password", txtPass.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@rol", cboRol.SelectedItem);
+                        //Llama procedimiento de la BD 'insertarUsuario'
+                        SqlCommand cmd = new SqlCommand();
+                        cmd = new SqlCommand("insertar_Usuarios", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                        cmd.Parameters.AddWithValue("@telefono", txtTelefono.Text);
+                        cmd.Parameters.AddWithValue("@login", txtUsuario.Text);
+                        cmd.Parameters.AddWithValue("@password", txtPass.Text);
+                        cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                        cmd.Parameters.AddWithValue("@rol", cboRol.SelectedItem);
 
-                    string estado = "Activo";
+                        string estado = "Activo";
 
-                    //transforma el binario a un formato de sql img
-                    MemoryStream imag = new MemoryStream();
-                    ptcIconoPass.Image.Save(imag, ptcIconoPass.Image.RawFormat);
+                        //transforma el binario a un formato de sql img
+                        MemoryStream imag = new MemoryStream();
+                        ptcIconoPass.Image.Save(imag, ptcIconoPass.Image.RawFormat);
 
-                    cmd.Parameters.AddWithValue("@icono", imag.GetBuffer());
-                    cmd.Parameters.AddWithValue("@nombreIcono", txtNombreIcono.Text);
-                    cmd.Parameters.AddWithValue("@estado", estado);
+                        cmd.Parameters.AddWithValue("@icono", imag.GetBuffer());
+                        cmd.Parameters.AddWithValue("@nombreIcono", txtNombreIcono.Text);
+                        cmd.Parameters.AddWithValue("@estado", estado);
 
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    mostrar();
-                    pnlFondo.Visible = false;
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        mostrar();
+                        pnlFondo.Visible = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Debes eligir un icono o foto para el usuario", "Icono no elegido");
                 }
             }
             else

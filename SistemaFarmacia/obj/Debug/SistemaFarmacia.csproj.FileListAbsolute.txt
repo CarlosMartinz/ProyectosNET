@@ -34,3 +34,5 @@ C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\Sis
 C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.csproj.CoreCompileInputs.cache
 C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.exe
 C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.pdb
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.MODULOS.FormPrincipal.resources
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.MODULOS.Login.FormLogin.resources

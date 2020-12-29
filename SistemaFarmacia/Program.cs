@@ -15,7 +15,7 @@ namespace SistemaFarmacia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormUsuarios());
+            Application.Run(new MODULOS.Login.FormLogin());
         }
     }
 }
