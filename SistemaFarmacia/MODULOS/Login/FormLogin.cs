@@ -13,12 +13,13 @@ namespace SistemaFarmacia.MODULOS.Login
 {
     public partial class FormLogin : Form
     {
+        int contador;
         public FormLogin()
         {
             InitializeComponent();
         }
 
-        public void mostrarUsuarios()
+        public void cmdtrarUsuarios()
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Data.db_conexion.conexion;
@@ -63,33 +64,81 @@ namespace SistemaFarmacia.MODULOS.Login
                 b.BringToFront();
                 flowLayoutPanel1.Controls.Add(p1);
 
-                b.Click += new EventHandler(cargarRegistrar);  
-                I1.Click += new EventHandler(cargarRegistrar);  
+                b.Click += new EventHandler(cargarValidarText);  
+                I1.Click += new EventHandler(cargarValidarImg);  
             }
             con.Close();
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            mostrarUsuarios();
+            cmdtrarUsuarios();
             pnlFondo.Visible = false;
         }
 
-        private void cargarRegistrar(Object sender, EventArgs e)
+        private void cargarValidarText(Object sender, EventArgs e)
         {
-            //txtlogin.Text = ((PictureBox)sender).Tag.ToString();
+            lblLogin.Text = ((Label)sender).Text;
             pnlFondo.Visible = true;
-            
         }
+       private void cargarValidarImg(Object sender, EventArgs e)
+       {
+            lblLogin.Text = ((PictureBox)sender).Tag.ToString();
+            pnlFondo.Visible = true;
+       }
 
         private void txtpassword_TextChanged(object sender, EventArgs e)
         {
-
+            iniciar();
         }
 
         private void Button7_Click(object sender, EventArgs e)
         {
             pnlFondo.Visible = false;
+        }
+
+        private void iniciar()
+        {
+            validarUsuario();
+            contar();
+
+            if(contador > 0)
+            {
+                Caja.FormCaja apertura = new Caja.FormCaja();
+                apertura.ShowDialog();
+                this.Hide();
+            }
+        }
+
+        private void contar()
+        {
+            int x;
+            x = dataGridView1.Rows.Count;
+            contador = (x);
+        }
+
+        private void validarUsuario()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter mos;
+                SqlConnection con = new SqlConnection();
+                //Data 'Carpeta', db_conexion 'Clase', conexion 'proceso'
+                con.ConnectionString = Data.db_conexion.conexion;
+                con.Open();
+                mos = new SqlDataAdapter("validarUsuario", con);
+                mos.SelectCommand.CommandType = CommandType.StoredProcedure;
+                mos.SelectCommand.Parameters.AddWithValue("@login", lblLogin.Text);
+                mos.SelectCommand.Parameters.AddWithValue("@pass", txtpassword.Text);
+                mos.Fill(dt);
+                dataGridView1.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

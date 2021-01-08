@@ -51,6 +51,12 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="MODULOS\Caja\FormCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODULOS\Caja\FormCaja.Designer.cs">
+      <DependentUpon>FormCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="MODULOS\Login\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
