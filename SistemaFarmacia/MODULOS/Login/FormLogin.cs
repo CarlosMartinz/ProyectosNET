@@ -62,6 +62,9 @@ namespace SistemaFarmacia.MODULOS.Login
                 p1.Controls.Add(I1);
                 b.BringToFront();
                 flowLayoutPanel1.Controls.Add(p1);
+
+                b.Click += new EventHandler(cargarRegistrar);  
+                I1.Click += new EventHandler(cargarRegistrar);  
             }
             con.Close();
         }
@@ -69,6 +72,24 @@ namespace SistemaFarmacia.MODULOS.Login
         private void FormLogin_Load(object sender, EventArgs e)
         {
             mostrarUsuarios();
+            pnlFondo.Visible = false;
+        }
+
+        private void cargarRegistrar(Object sender, EventArgs e)
+        {
+            //txtlogin.Text = ((PictureBox)sender).Tag.ToString();
+            pnlFondo.Visible = true;
+            
+        }
+
+        private void txtpassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            pnlFondo.Visible = false;
         }
     }
 }
