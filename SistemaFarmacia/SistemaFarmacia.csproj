@@ -99,5 +99,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="MODULOS\Login\CorreoRecuperar.html" />
+    <Content Include="MODULOS\stethoscope_doctor_health_medical_healthcare_icon_140241.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

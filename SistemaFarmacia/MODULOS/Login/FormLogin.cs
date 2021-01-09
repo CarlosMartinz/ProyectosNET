@@ -140,5 +140,17 @@ namespace SistemaFarmacia.MODULOS.Login
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pnlRestaurar.Visible = false;
+            pnlVerificador.Visible = true;
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            pnlVerificador.Visible = false;
+            pnlRestaurar.Visible = true;
+        }
     }
 }
