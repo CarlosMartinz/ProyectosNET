@@ -73,19 +73,24 @@ namespace SistemaFarmacia.MODULOS.Login
         private void FormLogin_Load(object sender, EventArgs e)
         {
             cmdtrarUsuarios();
-            pnlFondo.Visible = false;
+            pnlRestaurar.Visible = false;
+            pnlVerificador.Visible = false;
+            btnVolver.Visible = false;
+            pnlUsuarios.Visible = true;
         }
 
         private void cargarValidarText(Object sender, EventArgs e)
         {
             lblLogin.Text = ((Label)sender).Text;
-            pnlFondo.Visible = true;
+            pnlVerificador.Visible = true;
+            pnlUsuarios.Visible = false;
         }
        private void cargarValidarImg(Object sender, EventArgs e)
        {
             lblLogin.Text = ((PictureBox)sender).Tag.ToString();
-            pnlFondo.Visible = true;
-       }
+            pnlVerificador.Visible = true;
+            pnlUsuarios.Visible = false;
+        }
 
         private void txtpassword_TextChanged(object sender, EventArgs e)
         {
@@ -94,7 +99,9 @@ namespace SistemaFarmacia.MODULOS.Login
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            pnlFondo.Visible = false;
+            pnlRestaurar.Visible = false;
+            pnlVerificador.Visible = false;
+            pnlUsuarios.Visible = true;
         }
 
         private void iniciar()
@@ -144,13 +151,42 @@ namespace SistemaFarmacia.MODULOS.Login
         private void button1_Click(object sender, EventArgs e)
         {
             pnlRestaurar.Visible = false;
+            btnSalirLogin.Visible = false;
+            btnVolver.Visible = false;
             pnlVerificador.Visible = true;
+            pnlUsuarios.Visible = false;
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            pnlVerificador.Visible = false;
             pnlRestaurar.Visible = true;
+            btnSalirLogin.Visible = false;
+            btnVolver.Visible = true;
+            pnlVerificador.Visible = false;
+            pnlUsuarios.Visible = false;
+        }
+
+        private void btnSalirLogin_Click(object sender, EventArgs e)
+        {
+            pnlRestaurar.Visible = false;
+            btnSalirLogin.Visible = false;
+            btnVolver.Visible = false;
+            pnlVerificador.Visible = false;
+            pnlUsuarios.Visible = true;
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            pnlRestaurar.Visible = true;
+            btnSalirLogin.Visible = true;
+            btnVolver.Visible = false;
+            pnlVerificador.Visible = false;
+            pnlUsuarios.Visible = false;
         }
     }
 }
