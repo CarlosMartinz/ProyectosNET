@@ -108,6 +108,10 @@ namespace SistemaFarmacia.MODULOS.Login
             txtpassword.Text = "";
         }
 
+
+        /************************************************/
+        /*       Control de validacion de datos         */
+        /************************************************/
         private void iniciar()
         {
             validarUsuario();
@@ -235,6 +239,9 @@ namespace SistemaFarmacia.MODULOS.Login
             }
         }
 
+        /*****************************************/
+        /*   Control de visibilidad de paneles   */
+        /*****************************************/
         private void button1_Click(object sender, EventArgs e)
         {
             pnlRestaurar.Visible = false;
@@ -284,6 +291,6 @@ namespace SistemaFarmacia.MODULOS.Login
             /*richTextBox1.Text = richTextBox1.Text.Replace("@pass", lblprueba.Text);
             enviarCorreo("ada369.technical@gmail.com", "MAGbri2019", richTextBox1.Text, "Solicitud de Contraseña", cboCorreo.Text, "");
             */
-        }
     }
+}
 }
