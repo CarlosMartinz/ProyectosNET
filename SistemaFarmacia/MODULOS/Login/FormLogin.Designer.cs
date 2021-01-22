@@ -33,10 +33,13 @@ namespace SistemaFarmacia.MODULOS.Login
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlUsuarios = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlRestaurar = new System.Windows.Forms.Panel();
+            this.btnSalirLogin = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.cboCorreo = new System.Windows.Forms.ComboBox();
@@ -72,11 +75,10 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn8 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSalirLogin = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblprueba = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsuarios.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnlRestaurar.SuspendLayout();
@@ -87,7 +89,6 @@ namespace SistemaFarmacia.MODULOS.Login
             this.panel5.SuspendLayout();
             this.MenuStrip15.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -124,6 +125,33 @@ namespace SistemaFarmacia.MODULOS.Login
             this.flowLayoutPanel1.Size = new System.Drawing.Size(680, 363);
             this.flowLayoutPanel1.TabIndex = 5;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btnSalir);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 475);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(680, 56);
+            this.panel8.TabIndex = 6;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.Silver;
+            this.btnSalir.Location = new System.Drawing.Point(228, 9);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(225, 39);
+            this.btnSalir.TabIndex = 0;
+            this.btnSalir.Text = "OLVIDE MI CONTRASEÑA";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // panel2
             // 
@@ -172,6 +200,23 @@ namespace SistemaFarmacia.MODULOS.Login
             this.pnlRestaurar.TabIndex = 624;
             this.pnlRestaurar.Visible = false;
             // 
+            // btnSalirLogin
+            // 
+            this.btnSalirLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSalirLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnSalirLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalirLogin.FlatAppearance.BorderSize = 0;
+            this.btnSalirLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalirLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalirLogin.ForeColor = System.Drawing.Color.DarkGray;
+            this.btnSalirLogin.Location = new System.Drawing.Point(186, 267);
+            this.btnSalirLogin.Name = "btnSalirLogin";
+            this.btnSalirLogin.Size = new System.Drawing.Size(210, 35);
+            this.btnSalirLogin.TabIndex = 627;
+            this.btnSalirLogin.Text = "Volver";
+            this.btnSalirLogin.UseVisualStyleBackColor = false;
+            this.btnSalirLogin.Click += new System.EventHandler(this.btnSalirLogin_Click);
+            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -204,9 +249,9 @@ namespace SistemaFarmacia.MODULOS.Login
             this.cboCorreo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cboCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCorreo.FormattingEnabled = true;
-            this.cboCorreo.Location = new System.Drawing.Point(202, 126);
+            this.cboCorreo.Location = new System.Drawing.Point(245, 126);
             this.cboCorreo.Name = "cboCorreo";
-            this.cboCorreo.Size = new System.Drawing.Size(333, 28);
+            this.cboCorreo.Size = new System.Drawing.Size(290, 28);
             this.cboCorreo.TabIndex = 623;
             // 
             // btnVolver
@@ -229,7 +274,7 @@ namespace SistemaFarmacia.MODULOS.Login
             // btnEnviar
             // 
             this.btnEnviar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(63)))), ((int)(((byte)(67)))));
+            this.btnEnviar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnEnviar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEnviar.FlatAppearance.BorderSize = 0;
             this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -241,6 +286,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btnEnviar.TabIndex = 619;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = false;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // label6
             // 
@@ -362,7 +408,7 @@ namespace SistemaFarmacia.MODULOS.Login
             // btn_insertar
             // 
             this.btn_insertar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_insertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(63)))), ((int)(((byte)(67)))));
+            this.btn_insertar.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_insertar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_insertar.FlatAppearance.BorderSize = 0;
             this.btn_insertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -682,49 +728,15 @@ namespace SistemaFarmacia.MODULOS.Login
             this.label2.Text = "Inicio de Sesion";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnSalirLogin
+            // lblprueba
             // 
-            this.btnSalirLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSalirLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnSalirLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalirLogin.FlatAppearance.BorderSize = 0;
-            this.btnSalirLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalirLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalirLogin.ForeColor = System.Drawing.Color.DarkGray;
-            this.btnSalirLogin.Location = new System.Drawing.Point(186, 267);
-            this.btnSalirLogin.Name = "btnSalirLogin";
-            this.btnSalirLogin.Size = new System.Drawing.Size(210, 35);
-            this.btnSalirLogin.TabIndex = 627;
-            this.btnSalirLogin.Text = "Volver";
-            this.btnSalirLogin.UseVisualStyleBackColor = false;
-            this.btnSalirLogin.Click += new System.EventHandler(this.btnSalirLogin_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.Silver;
-            this.btnSalir.Location = new System.Drawing.Point(228, 9);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(225, 39);
-            this.btnSalir.TabIndex = 0;
-            this.btnSalir.Text = "OLVIDE MI CONTRASEÑA";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.btnSalir);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 475);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(680, 56);
-            this.panel8.TabIndex = 6;
+            this.lblprueba.AutoSize = true;
+            this.lblprueba.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblprueba.Location = new System.Drawing.Point(80, 286);
+            this.lblprueba.Name = "lblprueba";
+            this.lblprueba.Size = new System.Drawing.Size(35, 13);
+            this.lblprueba.TabIndex = 625;
+            this.lblprueba.Text = "label1";
             // 
             // FormLogin
             // 
@@ -732,8 +744,9 @@ namespace SistemaFarmacia.MODULOS.Login
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(900, 645);
-            this.Controls.Add(this.pnlVerificador);
+            this.Controls.Add(this.lblprueba);
             this.Controls.Add(this.pnlRestaurar);
+            this.Controls.Add(this.pnlVerificador);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlUsuarios);
@@ -745,6 +758,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlUsuarios.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.pnlRestaurar.ResumeLayout(false);
@@ -758,8 +772,8 @@ namespace SistemaFarmacia.MODULOS.Login
             this.MenuStrip15.ResumeLayout(false);
             this.MenuStrip15.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -810,5 +824,6 @@ namespace SistemaFarmacia.MODULOS.Login
         internal System.Windows.Forms.Button btnSalirLogin;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label lblprueba;
     }
 }

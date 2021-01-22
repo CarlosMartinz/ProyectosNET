@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Windows.Forms;
 
@@ -73,6 +75,7 @@ namespace SistemaFarmacia.MODULOS.Login
         private void FormLogin_Load(object sender, EventArgs e)
         {
             cmdtrarUsuarios();
+            mostrarCorreos();
             pnlRestaurar.Visible = false;
             pnlVerificador.Visible = false;
             btnVolver.Visible = false;
@@ -102,6 +105,7 @@ namespace SistemaFarmacia.MODULOS.Login
             pnlRestaurar.Visible = false;
             pnlVerificador.Visible = false;
             pnlUsuarios.Visible = true;
+            txtpassword.Text = "";
         }
 
         private void iniciar()
@@ -147,6 +151,89 @@ namespace SistemaFarmacia.MODULOS.Login
                 MessageBox.Show(ex.Message);
             }
         }
+         private void enviarPass()
+         {
+            try
+            {
+                string result;
+                DataTable dt = new DataTable();
+                SqlDataAdapter mos;
+                SqlConnection con = new SqlConnection();
+                //Data 'Carpeta', db_conexion 'Clase', conexion 'proceso'
+                con.ConnectionString = Data.db_conexion.conexion;
+                con.Open();
+                SqlCommand da = new SqlCommand("mostrarPass", con);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@email", cboCorreo.Text);
+
+                lblprueba.Text = Convert.ToString(da.ExecuteScalar());
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+         }
+
+        internal void enviarCorreo(string emisor, string password, string mensaje, string asunto, string destinatario, string ruta)
+        {
+            try
+            {
+                MailMessage correos = new MailMessage();
+                SmtpClient envios = new SmtpClient();
+                correos.To.Clear();
+                correos.Body = "";
+                correos.Subject = "";
+                correos.Body = mensaje;
+                correos.Subject = asunto;
+                correos.IsBodyHtml = true;
+                correos.To.Add((destinatario));
+                correos.From = new MailAddress(emisor);
+                envios.Credentials = new NetworkCredential(emisor, password);
+
+                envios.Host = "smtp.gmail.com";
+                envios.Port = 587;
+                envios.EnableSsl = true;
+
+                envios.Send(correos);
+                //lblEstado_de_envio.Text = "ENVIADO";
+                MessageBox.Show("Contraseña Enviada, revisa tu correo electronico, si no logras encontrar el correo reisa el spam", "Restauracion de contraseña", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //PanelRestaurarCuenta.Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR, revisa tu correo Electronico", "Restauracion de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //lblEstado_de_envio.Text = "Correo no registrado";
+            }
+
+        }
+
+        private void mostrarCorreos()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter mos;
+                SqlConnection con = new SqlConnection();
+                //Data 'Carpeta', db_conexion 'Clase', conexion 'proceso'
+                con.ConnectionString = Data.db_conexion.conexion;
+                con.Open();
+                mos = new SqlDataAdapter("select Email from Usuarios where Estado = 'Activo'", con);
+
+                mos.Fill(dt);
+                cboCorreo.DisplayMember = "Email";
+                cboCorreo.ValueMember = "Email";
+                cboCorreo.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -159,6 +246,7 @@ namespace SistemaFarmacia.MODULOS.Login
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            mostrarCorreos();
             pnlRestaurar.Visible = true;
             btnSalirLogin.Visible = false;
             btnVolver.Visible = true;
@@ -182,11 +270,20 @@ namespace SistemaFarmacia.MODULOS.Login
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            mostrarCorreos();
             pnlRestaurar.Visible = true;
             btnSalirLogin.Visible = true;
             btnVolver.Visible = false;
             pnlVerificador.Visible = false;
             pnlUsuarios.Visible = false;
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            enviarPass();
+            /*richTextBox1.Text = richTextBox1.Text.Replace("@pass", lblprueba.Text);
+            enviarCorreo("ada369.technical@gmail.com", "MAGbri2019", richTextBox1.Text, "Solicitud de Contraseña", cboCorreo.Text, "");
+            */
         }
     }
 }

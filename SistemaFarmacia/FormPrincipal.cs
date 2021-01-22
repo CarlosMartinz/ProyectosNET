@@ -32,5 +32,17 @@ namespace SistemaFarmacia.MODULOS
         {
 
         }
+
+        private void salirToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MODULOS.Caja.FormCaja nuevo = new Caja.FormCaja();
+            nuevo.MdiParent = this;
+            nuevo.Show();
+        }
     }
 }
