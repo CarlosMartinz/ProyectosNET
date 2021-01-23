@@ -108,7 +108,6 @@ namespace SistemaFarmacia.MODULOS.Login
             txtpassword.Text = "";
         }
 
-
         /************************************************/
         /*       Control de validacion de datos         */
         /************************************************/
@@ -155,7 +154,7 @@ namespace SistemaFarmacia.MODULOS.Login
                 MessageBox.Show(ex.Message);
             }
         }
-         private void enviarPass()
+         private void buscarUserCorreo()
          {
             try
             {
@@ -170,7 +169,7 @@ namespace SistemaFarmacia.MODULOS.Login
                 da.CommandType = CommandType.StoredProcedure;
                 da.Parameters.AddWithValue("@email", cboCorreo.Text);
 
-                lblprueba.Text = Convert.ToString(da.ExecuteScalar());
+                lblResultadoPass.Text = Convert.ToString(da.ExecuteScalar());
                 con.Close();
             }
             catch (Exception ex)
@@ -178,6 +177,13 @@ namespace SistemaFarmacia.MODULOS.Login
                 MessageBox.Show(ex.Message);
             }
          }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            buscarUserCorreo();
+            txtMensaje.Text = txtMensaje.Text.Replace("@password", lblResultadoPass.Text);
+            enviarCorreo("desing.cod@gmail.com", "582469713Ca", txtMensaje.Text, "Solicitud de Contraseña", cboCorreo.Text, "");
+        }
 
         internal void enviarCorreo(string emisor, string password, string mensaje, string asunto, string destinatario, string ruta)
         {
@@ -200,7 +206,7 @@ namespace SistemaFarmacia.MODULOS.Login
                 envios.EnableSsl = true;
 
                 envios.Send(correos);
-                //lblEstado_de_envio.Text = "ENVIADO";
+                lblEstadoEnvio.Text = "ENVIADO";
                 MessageBox.Show("Contraseña Enviada, revisa tu correo electronico, si no logras encontrar el correo reisa el spam", "Restauracion de contraseña", 
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //PanelRestaurarCuenta.Visible = false;
@@ -284,13 +290,6 @@ namespace SistemaFarmacia.MODULOS.Login
             pnlVerificador.Visible = false;
             pnlUsuarios.Visible = false;
         }
-
-        private void btnEnviar_Click(object sender, EventArgs e)
-        {
-            enviarPass();
-            /*richTextBox1.Text = richTextBox1.Text.Replace("@pass", lblprueba.Text);
-            enviarCorreo("ada369.technical@gmail.com", "MAGbri2019", richTextBox1.Text, "Solicitud de Contraseña", cboCorreo.Text, "");
-            */
     }
 }
-}
+

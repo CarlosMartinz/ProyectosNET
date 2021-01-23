@@ -39,6 +39,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlRestaurar = new System.Windows.Forms.Panel();
+            this.txtMensaje = new System.Windows.Forms.RichTextBox();
             this.btnSalirLogin = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -47,6 +48,8 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btnEnviar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblEstadoEnvio = new System.Windows.Forms.Label();
+            this.lblResultadoPass = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblLogin = new System.Windows.Forms.Label();
             this.pnlVerificador = new System.Windows.Forms.Panel();
@@ -75,7 +78,6 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn8 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblprueba = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsuarios.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -137,11 +139,8 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             // btnSalir
             // 
-            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Silver;
@@ -199,6 +198,14 @@ namespace SistemaFarmacia.MODULOS.Login
             this.pnlRestaurar.Size = new System.Drawing.Size(585, 320);
             this.pnlRestaurar.TabIndex = 624;
             this.pnlRestaurar.Visible = false;
+            // 
+            // txtMensaje
+            // 
+            this.txtMensaje.Location = new System.Drawing.Point(17, 155);
+            this.txtMensaje.Name = "txtMensaje";
+            this.txtMensaje.Size = new System.Drawing.Size(119, 47);
+            this.txtMensaje.TabIndex = 627;
+            this.txtMensaje.Text = resources.GetString("txtMensaje.Text");
             // 
             // btnSalirLogin
             // 
@@ -303,17 +310,40 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.txtMensaje);
+            this.panel7.Controls.Add(this.lblEstadoEnvio);
+            this.panel7.Controls.Add(this.lblResultadoPass);
             this.panel7.Controls.Add(this.dataGridView1);
-            this.panel7.Location = new System.Drawing.Point(10, 428);
+            this.panel7.Location = new System.Drawing.Point(10, 320);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(105, 110);
+            this.panel7.Size = new System.Drawing.Size(146, 218);
             this.panel7.TabIndex = 618;
             this.panel7.Visible = false;
+            // 
+            // lblEstadoEnvio
+            // 
+            this.lblEstadoEnvio.AutoSize = true;
+            this.lblEstadoEnvio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblEstadoEnvio.Location = new System.Drawing.Point(14, 109);
+            this.lblEstadoEnvio.Name = "lblEstadoEnvio";
+            this.lblEstadoEnvio.Size = new System.Drawing.Size(35, 13);
+            this.lblEstadoEnvio.TabIndex = 626;
+            this.lblEstadoEnvio.Text = "label1";
+            // 
+            // lblResultadoPass
+            // 
+            this.lblResultadoPass.AutoSize = true;
+            this.lblResultadoPass.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblResultadoPass.Location = new System.Drawing.Point(14, 87);
+            this.lblResultadoPass.Name = "lblResultadoPass";
+            this.lblResultadoPass.Size = new System.Drawing.Size(35, 13);
+            this.lblResultadoPass.TabIndex = 625;
+            this.lblResultadoPass.Text = "label1";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 56);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 11);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(77, 51);
             this.dataGridView1.TabIndex = 616;
@@ -728,28 +758,17 @@ namespace SistemaFarmacia.MODULOS.Login
             this.label2.Text = "Inicio de Sesion";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblprueba
-            // 
-            this.lblprueba.AutoSize = true;
-            this.lblprueba.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblprueba.Location = new System.Drawing.Point(80, 286);
-            this.lblprueba.Name = "lblprueba";
-            this.lblprueba.Size = new System.Drawing.Size(35, 13);
-            this.lblprueba.TabIndex = 625;
-            this.lblprueba.Text = "label1";
-            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(900, 645);
-            this.Controls.Add(this.lblprueba);
+            this.Controls.Add(this.pnlUsuarios);
             this.Controls.Add(this.pnlRestaurar);
             this.Controls.Add(this.pnlVerificador);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.pnlUsuarios);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormLogin";
@@ -763,6 +782,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.panel3.ResumeLayout(false);
             this.pnlRestaurar.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlVerificador.ResumeLayout(false);
             this.pnlVerificador.PerformLayout();
@@ -773,7 +793,6 @@ namespace SistemaFarmacia.MODULOS.Login
             this.MenuStrip15.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -824,6 +843,8 @@ namespace SistemaFarmacia.MODULOS.Login
         internal System.Windows.Forms.Button btnSalirLogin;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Label lblprueba;
+        private System.Windows.Forms.Label lblResultadoPass;
+        private System.Windows.Forms.Label lblEstadoEnvio;
+        private System.Windows.Forms.RichTextBox txtMensaje;
     }
 }
