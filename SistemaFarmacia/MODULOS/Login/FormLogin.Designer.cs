@@ -29,6 +29,7 @@ namespace SistemaFarmacia.MODULOS.Login
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlUsuarios = new System.Windows.Forms.Panel();
@@ -39,7 +40,6 @@ namespace SistemaFarmacia.MODULOS.Login
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlRestaurar = new System.Windows.Forms.Panel();
-            this.txtMensaje = new System.Windows.Forms.RichTextBox();
             this.btnSalirLogin = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -47,7 +47,9 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtMensaje = new System.Windows.Forms.RichTextBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblSerial = new System.Windows.Forms.Label();
             this.lblEstadoEnvio = new System.Windows.Forms.Label();
             this.lblResultadoPass = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -78,6 +80,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn8 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.espera = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsuarios.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -199,14 +202,6 @@ namespace SistemaFarmacia.MODULOS.Login
             this.pnlRestaurar.TabIndex = 624;
             this.pnlRestaurar.Visible = false;
             // 
-            // txtMensaje
-            // 
-            this.txtMensaje.Location = new System.Drawing.Point(17, 155);
-            this.txtMensaje.Name = "txtMensaje";
-            this.txtMensaje.Size = new System.Drawing.Size(119, 47);
-            this.txtMensaje.TabIndex = 627;
-            this.txtMensaje.Text = resources.GetString("txtMensaje.Text");
-            // 
             // btnSalirLogin
             // 
             this.btnSalirLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -228,9 +223,9 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.ForeColor = System.Drawing.Color.DarkGray;
-            this.label5.Location = new System.Drawing.Point(225, 157);
+            this.label5.Location = new System.Drawing.Point(245, 157);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(240, 20);
+            this.label5.Size = new System.Drawing.Size(290, 20);
             this.label5.TabIndex = 626;
             this.label5.Text = "Con el que registraron tú usuario.";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -308,37 +303,55 @@ namespace SistemaFarmacia.MODULOS.Login
             this.label6.Text = "Restaurar contraseña";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtMensaje
+            // 
+            this.txtMensaje.Location = new System.Drawing.Point(17, 121);
+            this.txtMensaje.Name = "txtMensaje";
+            this.txtMensaje.Size = new System.Drawing.Size(119, 47);
+            this.txtMensaje.TabIndex = 627;
+            this.txtMensaje.Text = resources.GetString("txtMensaje.Text");
+            // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.lblSerial);
             this.panel7.Controls.Add(this.txtMensaje);
             this.panel7.Controls.Add(this.lblEstadoEnvio);
             this.panel7.Controls.Add(this.lblResultadoPass);
             this.panel7.Controls.Add(this.dataGridView1);
             this.panel7.Location = new System.Drawing.Point(10, 320);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(146, 218);
+            this.panel7.Size = new System.Drawing.Size(146, 272);
             this.panel7.TabIndex = 618;
-            this.panel7.Visible = false;
+            // 
+            // lblSerial
+            // 
+            this.lblSerial.AutoSize = true;
+            this.lblSerial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblSerial.Location = new System.Drawing.Point(14, 176);
+            this.lblSerial.Name = "lblSerial";
+            this.lblSerial.Size = new System.Drawing.Size(33, 13);
+            this.lblSerial.TabIndex = 628;
+            this.lblSerial.Text = "Serial";
             // 
             // lblEstadoEnvio
             // 
             this.lblEstadoEnvio.AutoSize = true;
             this.lblEstadoEnvio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblEstadoEnvio.Location = new System.Drawing.Point(14, 109);
+            this.lblEstadoEnvio.Location = new System.Drawing.Point(14, 100);
             this.lblEstadoEnvio.Name = "lblEstadoEnvio";
-            this.lblEstadoEnvio.Size = new System.Drawing.Size(35, 13);
+            this.lblEstadoEnvio.Size = new System.Drawing.Size(84, 13);
             this.lblEstadoEnvio.TabIndex = 626;
-            this.lblEstadoEnvio.Text = "label1";
+            this.lblEstadoEnvio.Text = "Estado de envio";
             // 
             // lblResultadoPass
             // 
             this.lblResultadoPass.AutoSize = true;
             this.lblResultadoPass.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblResultadoPass.Location = new System.Drawing.Point(14, 87);
+            this.lblResultadoPass.Location = new System.Drawing.Point(14, 77);
             this.lblResultadoPass.Name = "lblResultadoPass";
-            this.lblResultadoPass.Size = new System.Drawing.Size(35, 13);
+            this.lblResultadoPass.Size = new System.Drawing.Size(120, 13);
             this.lblResultadoPass.TabIndex = 625;
-            this.lblResultadoPass.Text = "label1";
+            this.lblResultadoPass.Text = "Resultado del password";
             // 
             // dataGridView1
             // 
@@ -758,17 +771,21 @@ namespace SistemaFarmacia.MODULOS.Login
             this.label2.Text = "Inicio de Sesion";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // espera
+            // 
+            this.espera.Tick += new System.EventHandler(this.espera_Tick);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(900, 645);
-            this.Controls.Add(this.pnlUsuarios);
             this.Controls.Add(this.pnlRestaurar);
             this.Controls.Add(this.pnlVerificador);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnlUsuarios);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormLogin";
@@ -846,5 +863,7 @@ namespace SistemaFarmacia.MODULOS.Login
         private System.Windows.Forms.Label lblResultadoPass;
         private System.Windows.Forms.Label lblEstadoEnvio;
         private System.Windows.Forms.RichTextBox txtMensaje;
+        private System.Windows.Forms.Timer espera;
+        private System.Windows.Forms.Label lblSerial;
     }
 }

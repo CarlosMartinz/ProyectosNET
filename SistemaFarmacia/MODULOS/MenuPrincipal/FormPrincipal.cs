@@ -40,9 +40,15 @@ namespace SistemaFarmacia.MODULOS
 
         private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MODULOS.Caja.FormCaja nuevo = new Caja.FormCaja();
+            MODULOS.Menu.Facturacion.FormFacturar nuevo = new Menu.Facturacion.FormFacturar();
             nuevo.MdiParent = this;
+            nuevo.Dock = DockStyle.Fill;
             nuevo.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

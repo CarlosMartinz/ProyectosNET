@@ -34,6 +34,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,23 +47,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\db_conexion.cs" />
-    <Compile Include="FormPrincipal.cs">
+    <Compile Include="MODULOS\MenuPrincipal\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.Designer.cs">
+    <Compile Include="MODULOS\MenuPrincipal\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="MODULOS\Caja\FormCaja.cs">
+    <Compile Include="MODULOS\Caja\FormApertura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULOS\Caja\FormCaja.Designer.cs">
-      <DependentUpon>FormCaja.cs</DependentUpon>
+    <Compile Include="MODULOS\Caja\FormApertura.Designer.cs">
+      <DependentUpon>FormApertura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODULOS\Caja\FormCierre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODULOS\Caja\FormCierre.Designer.cs">
+      <DependentUpon>FormCierre.cs</DependentUpon>
     </Compile>
     <Compile Include="MODULOS\Login\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MODULOS\Login\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODULOS\Menu\Facturacion\FormFacturar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODULOS\Menu\Facturacion\FormFacturar.Designer.cs">
+      <DependentUpon>FormFacturar.cs</DependentUpon>
     </Compile>
     <Compile Include="MODULOS\Usuarios\FormUsuarios.cs">
       <SubType>Form</SubType>
@@ -71,11 +85,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormPrincipal.resx">
+    <EmbeddedResource Include="MODULOS\MenuPrincipal\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODULOS\Caja\FormApertura.resx">
+      <DependentUpon>FormApertura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MODULOS\Login\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODULOS\Menu\Facturacion\FormFacturar.resx">
+      <DependentUpon>FormFacturar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MODULOS\Usuarios\FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>

@@ -1,7 +1,7 @@
 ﻿
 namespace SistemaFarmacia.MODULOS.Caja
 {
-    partial class FormCaja
+    partial class FormCierre
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormCaja";
+            this.Text = "FormCierre";
         }
 
         #endregion

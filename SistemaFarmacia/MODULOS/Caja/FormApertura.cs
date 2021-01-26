@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SistemaFarmacia.MODULOS.Caja
 {
-    public partial class FormCaja : Form
+    public partial class FormApertura : Form
     {
-        public FormCaja()
+        public FormApertura()
         {
             InitializeComponent();
         }

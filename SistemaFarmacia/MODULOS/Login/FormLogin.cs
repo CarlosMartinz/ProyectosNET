@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Management;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
@@ -80,6 +81,8 @@ namespace SistemaFarmacia.MODULOS.Login
             pnlVerificador.Visible = false;
             btnVolver.Visible = false;
             pnlUsuarios.Visible = true;
+
+            espera.Start();
         }
 
         private void cargarValidarText(Object sender, EventArgs e)
@@ -118,7 +121,7 @@ namespace SistemaFarmacia.MODULOS.Login
 
             if(contador > 0)
             {
-                Caja.FormCaja apertura = new Caja.FormCaja();
+                Caja.FormApertura apertura = new Caja.FormApertura();
                 apertura.ShowDialog();
                 this.Hide();
             }
@@ -289,6 +292,37 @@ namespace SistemaFarmacia.MODULOS.Login
             btnVolver.Visible = false;
             pnlVerificador.Visible = false;
             pnlUsuarios.Visible = false;
+        }
+
+        private void espera_Tick(object sender, EventArgs e)
+        {
+            espera.Stop();
+
+            try
+            {
+                ManagementObjectSearcher MOS = new ManagementObjectSearcher("Select * From Win32_BaseBoard");
+                foreach (ManagementObject getserial in MOS.Get())
+                {
+                    lblSerial.Text = getserial.Properties["SerialNumber"].Value.ToString();
+
+                    //MOSTRAR_CAJA_POR_SERIAL();
+                    try
+                    {
+                        /*txtidcaja.Text = datalistado_caja.SelectedCells[1].Value.ToString();
+                        lblcaja.Text = datalistado_caja.SelectedCells[2].Value.ToString();
+                        idcajavariable = txtidcaja.Text;*/
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
