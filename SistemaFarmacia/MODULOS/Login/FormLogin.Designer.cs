@@ -81,6 +81,10 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.espera = new System.Windows.Forms.Timer(this.components);
+            this.datalistado_caja = new System.Windows.Forms.DataGridView();
+            this.lblidCaja = new System.Windows.Forms.Label();
+            this.lblCaja = new System.Windows.Forms.Label();
+            this.idCajaCierre = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsuarios.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -94,6 +98,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.panel5.SuspendLayout();
             this.MenuStrip15.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistado_caja)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -313,14 +318,18 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.idCajaCierre);
+            this.panel7.Controls.Add(this.lblCaja);
+            this.panel7.Controls.Add(this.lblidCaja);
+            this.panel7.Controls.Add(this.datalistado_caja);
             this.panel7.Controls.Add(this.lblSerial);
             this.panel7.Controls.Add(this.txtMensaje);
             this.panel7.Controls.Add(this.lblEstadoEnvio);
             this.panel7.Controls.Add(this.lblResultadoPass);
             this.panel7.Controls.Add(this.dataGridView1);
-            this.panel7.Location = new System.Drawing.Point(10, 320);
+            this.panel7.Location = new System.Drawing.Point(6, 210);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(146, 272);
+            this.panel7.Size = new System.Drawing.Size(146, 326);
             this.panel7.TabIndex = 618;
             // 
             // lblSerial
@@ -463,6 +472,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn_insertar.TabIndex = 619;
             this.btn_insertar.Text = "Iniciar sesion";
             this.btn_insertar.UseVisualStyleBackColor = false;
+            this.btn_insertar.Click += new System.EventHandler(this.btn_insertar_Click);
             // 
             // panel5
             // 
@@ -491,7 +501,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.MenuStrip15.Name = "MenuStrip15";
             this.MenuStrip15.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.MenuStrip15.ShowItemToolTips = true;
-            this.MenuStrip15.Size = new System.Drawing.Size(35, 28);
+            this.MenuStrip15.Size = new System.Drawing.Size(69, 28);
             this.MenuStrip15.TabIndex = 606;
             this.MenuStrip15.Text = "MenuStrip15";
             // 
@@ -506,6 +516,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.tver.Name = "tver";
             this.tver.Size = new System.Drawing.Size(28, 24);
             this.tver.ToolTipText = "Ver contraseña";
+            this.tver.Click += new System.EventHandler(this.tver_Click);
             // 
             // tocultar
             // 
@@ -519,6 +530,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.tocultar.Size = new System.Drawing.Size(28, 24);
             this.tocultar.ToolTipText = "Ocultar contraseña";
             this.tocultar.Visible = false;
+            this.tocultar.Click += new System.EventHandler(this.tocultar_Click);
             // 
             // panel6
             // 
@@ -563,6 +575,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn0.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn0.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn0.UseVisualStyleBackColor = false;
+            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
             // btnborrarderecha
             // 
@@ -579,6 +592,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btnborrarderecha.TabIndex = 616;
             this.btnborrarderecha.Text = "<--";
             this.btnborrarderecha.UseVisualStyleBackColor = false;
+            this.btnborrarderecha.Click += new System.EventHandler(this.btnborrarderecha_Click);
             // 
             // btnborrartodo
             // 
@@ -595,6 +609,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btnborrartodo.TabIndex = 615;
             this.btnborrartodo.Text = "Borrar";
             this.btnborrartodo.UseVisualStyleBackColor = false;
+            this.btnborrartodo.Click += new System.EventHandler(this.btnborrartodo_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -629,6 +644,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn3.TabIndex = 42;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = false;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btn2
             // 
@@ -645,6 +661,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn2.TabIndex = 41;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = false;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btn1
             // 
@@ -661,6 +678,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn1.TabIndex = 40;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = false;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn6
             // 
@@ -677,6 +695,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn6.TabIndex = 37;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = false;
+            this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btn5
             // 
@@ -693,6 +712,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn5.TabIndex = 36;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = false;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn4
             // 
@@ -709,6 +729,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn4.TabIndex = 35;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = false;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // btn9
             // 
@@ -725,6 +746,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn9.TabIndex = 32;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = false;
+            this.btn9.Click += new System.EventHandler(this.btn9_Click);
             // 
             // btn8
             // 
@@ -741,6 +763,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn8.TabIndex = 31;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = false;
+            this.btn8.Click += new System.EventHandler(this.btn8_Click);
             // 
             // btn7
             // 
@@ -757,6 +780,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn7.TabIndex = 30;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = false;
+            this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
             // label2
             // 
@@ -775,14 +799,52 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             this.espera.Tick += new System.EventHandler(this.espera_Tick);
             // 
+            // datalistado_caja
+            // 
+            this.datalistado_caja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistado_caja.Location = new System.Drawing.Point(17, 204);
+            this.datalistado_caja.Name = "datalistado_caja";
+            this.datalistado_caja.Size = new System.Drawing.Size(77, 51);
+            this.datalistado_caja.TabIndex = 629;
+            // 
+            // lblidCaja
+            // 
+            this.lblidCaja.AutoSize = true;
+            this.lblidCaja.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblidCaja.Location = new System.Drawing.Point(17, 268);
+            this.lblidCaja.Name = "lblidCaja";
+            this.lblidCaja.Size = new System.Drawing.Size(46, 13);
+            this.lblidCaja.TabIndex = 630;
+            this.lblidCaja.Text = "lblidCaja";
+            // 
+            // lblCaja
+            // 
+            this.lblCaja.AutoSize = true;
+            this.lblCaja.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblCaja.Location = new System.Drawing.Point(21, 288);
+            this.lblCaja.Name = "lblCaja";
+            this.lblCaja.Size = new System.Drawing.Size(38, 13);
+            this.lblCaja.TabIndex = 631;
+            this.lblCaja.Text = "lblCaja";
+            // 
+            // idCajaCierre
+            // 
+            this.idCajaCierre.AutoSize = true;
+            this.idCajaCierre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.idCajaCierre.Location = new System.Drawing.Point(24, 304);
+            this.idCajaCierre.Name = "idCajaCierre";
+            this.idCajaCierre.Size = new System.Drawing.Size(63, 13);
+            this.idCajaCierre.TabIndex = 632;
+            this.idCajaCierre.Text = "idCajaCierre";
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(900, 645);
-            this.Controls.Add(this.pnlRestaurar);
             this.Controls.Add(this.pnlVerificador);
+            this.Controls.Add(this.pnlRestaurar);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlUsuarios);
@@ -809,6 +871,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.MenuStrip15.ResumeLayout(false);
             this.MenuStrip15.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datalistado_caja)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -865,5 +928,9 @@ namespace SistemaFarmacia.MODULOS.Login
         private System.Windows.Forms.RichTextBox txtMensaje;
         private System.Windows.Forms.Timer espera;
         private System.Windows.Forms.Label lblSerial;
+        private System.Windows.Forms.DataGridView datalistado_caja;
+        private System.Windows.Forms.Label lblidCaja;
+        private System.Windows.Forms.Label lblCaja;
+        private System.Windows.Forms.Label idCajaCierre;
     }
 }

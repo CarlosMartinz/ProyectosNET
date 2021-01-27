@@ -119,12 +119,12 @@ namespace SistemaFarmacia.MODULOS.Login
             validarUsuario();
             contar();
 
-            if(contador > 0)
-            {
-                Caja.FormApertura apertura = new Caja.FormApertura();
-                apertura.ShowDialog();
-                this.Hide();
-            }
+            //if(contador > 0)
+            //{
+            //    Caja.FormApertura apertura = new Caja.FormApertura();
+            //    apertura.ShowDialog();
+            //    this.Hide();
+            //}
         }
 
         private void contar()
@@ -248,9 +248,34 @@ namespace SistemaFarmacia.MODULOS.Login
             }
         }
 
-        /*****************************************/
-        /*   Control de visibilidad de paneles   */
-        /*****************************************/
+        private void mostrarCajaPorSerial()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = Data.db_conexion.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrarCajaSerial", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Serial", lblSerial.Text);
+                da.Fill(dt);
+                datalistado_caja.DataSource = dt;
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+          /*****************************************/
+          /*   Control de visibilidad de paneles   */
+          /*****************************************/
         private void button1_Click(object sender, EventArgs e)
         {
             pnlRestaurar.Visible = false;
@@ -305,12 +330,12 @@ namespace SistemaFarmacia.MODULOS.Login
                 {
                     lblSerial.Text = getserial.Properties["SerialNumber"].Value.ToString();
 
-                    //MOSTRAR_CAJA_POR_SERIAL();
+                    mostrarCajaPorSerial();
                     try
                     {
-                        /*txtidcaja.Text = datalistado_caja.SelectedCells[1].Value.ToString();
-                        lblcaja.Text = datalistado_caja.SelectedCells[2].Value.ToString();
-                        idcajavariable = txtidcaja.Text;*/
+                        lblidCaja.Text = datalistado_caja.SelectedCells[1].Value.ToString();
+                        lblCaja.Text = datalistado_caja.SelectedCells[2].Value.ToString();
+                        idCajaCierre.Text = lblidCaja.Text;
                     }
                     catch (Exception ex)
                     {
@@ -318,11 +343,108 @@ namespace SistemaFarmacia.MODULOS.Login
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
             }
+        }
+
+
+        /***************/
+        /*   Botones   */
+        /***************/
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            txtpassword.Text = txtpassword.Text + "1";
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            txtpassword.Text = txtpassword.Text + "2";
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            txtpassword.Text = txtpassword.Text + "3";
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            txtpassword.Text = txtpassword.Text + "4";
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            txtpassword.Text = txtpassword.Text + "5";
+        }
+
+        private void btn6_Click(object sender, EventArgs e)
+        {
+            txtpassword.Text = txtpassword.Text + "6";
+        }
+
+        private void btn7_Click(object sender, EventArgs e)
+        {
+            txtpassword.Text = txtpassword.Text + "7";
+        }
+
+        private void btn8_Click(object sender, EventArgs e)
+        {
+            txtpassword.Text = txtpassword.Text + "8";
+        }
+
+        private void btn9_Click(object sender, EventArgs e)
+        {
+            txtpassword.Text = txtpassword.Text + "9";
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+            txtpassword.Text = txtpassword.Text + "0";
+        }
+
+        private void btnborrartodo_Click(object sender, EventArgs e)
+        {
+            txtpassword.Clear();
+        }
+
+        public static string Mid(string param, int startIndex, int length)
+        {
+            string result = param.Substring(startIndex, length);
+            return result;
+        }
+
+        private void btnborrarderecha_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int largo;
+                if (txtpassword.Text != "")
+                {
+                    largo = txtpassword.Text.Length;
+                    txtpassword.Text = Mid(txtpassword.Text, 1, largo - 1);
+                }
+            }
+            catch{}
+        }
+
+        private void btn_insertar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tocultar_Click(object sender, EventArgs e)
+        {
+            txtpassword.PasswordChar = '*';
+            tver.Visible = true;
+            tocultar.Visible = false;
+        }
+
+        private void tver_Click(object sender, EventArgs e)
+        {
+            txtpassword.PasswordChar = '\0';
+            tver.Visible = false;
+            tocultar.Visible = true;
         }
     }
 }
