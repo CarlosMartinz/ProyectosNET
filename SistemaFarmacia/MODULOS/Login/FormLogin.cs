@@ -17,6 +17,7 @@ namespace SistemaFarmacia.MODULOS.Login
     public partial class FormLogin : Form
     {
         int contador;
+        int contadorCajas;
         public FormLogin()
         {
             InitializeComponent();
@@ -119,12 +120,24 @@ namespace SistemaFarmacia.MODULOS.Login
             validarUsuario();
             contar();
 
-            //if(contador > 0)
-            //{
-            //    Caja.FormApertura apertura = new Caja.FormApertura();
-            //    apertura.ShowDialog();
-            //    this.Hide();
-            //}
+            if (contador > 0)
+            {
+                listarAPERTURASDetalleCierresCaja();
+                contarAperturasDetalleCierresCaja();
+                if(contadorCajas > 0) 
+                { 
+                    
+                }
+            }
+        }
+
+        private void contarAperturasDetalleCierresCaja()
+        {
+            int x;
+
+            x = datalistadoDetalleCierreCaja.Rows.Count;
+            contadorCajas = (x);
+
         }
 
         private void contar()
@@ -295,13 +308,27 @@ namespace SistemaFarmacia.MODULOS.Login
             pnlUsuarios.Visible = false;
         }
 
-        private void btnSalirLogin_Click(object sender, EventArgs e)
+        private void listarAPERTURASDetalleCierresCaja()
         {
-            pnlRestaurar.Visible = false;
-            btnSalirLogin.Visible = false;
-            btnVolver.Visible = false;
-            pnlVerificador.Visible = false;
-            pnlUsuarios.Visible = true;
+            try
+            { 
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = Data.db_conexion.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrarMovimientosCajaSerial", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@serial", lblSerial.Text);
+                da.Fill(dt);
+                datalistadoDetalleCierreCaja.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)

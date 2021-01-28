@@ -49,7 +49,11 @@ namespace SistemaFarmacia.MODULOS.Login
             this.label6 = new System.Windows.Forms.Label();
             this.txtMensaje = new System.Windows.Forms.RichTextBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.lblSerial = new System.Windows.Forms.Label();
+            this.lblSerial = new System.Windows.Forms.TextBox();
+            this.idCajaCierre = new System.Windows.Forms.Label();
+            this.lblCaja = new System.Windows.Forms.Label();
+            this.lblidCaja = new System.Windows.Forms.Label();
+            this.datalistado_caja = new System.Windows.Forms.DataGridView();
             this.lblEstadoEnvio = new System.Windows.Forms.Label();
             this.lblResultadoPass = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -81,10 +85,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.espera = new System.Windows.Forms.Timer(this.components);
-            this.datalistado_caja = new System.Windows.Forms.DataGridView();
-            this.lblidCaja = new System.Windows.Forms.Label();
-            this.lblCaja = new System.Windows.Forms.Label();
-            this.idCajaCierre = new System.Windows.Forms.Label();
+            this.datalistadoDetalleCierreCaja = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsuarios.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -92,13 +93,14 @@ namespace SistemaFarmacia.MODULOS.Login
             this.panel3.SuspendLayout();
             this.pnlRestaurar.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistado_caja)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlVerificador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).BeginInit();
             this.panel5.SuspendLayout();
             this.MenuStrip15.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistado_caja)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleCierreCaja)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -222,7 +224,6 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btnSalirLogin.TabIndex = 627;
             this.btnSalirLogin.Text = "Volver";
             this.btnSalirLogin.UseVisualStyleBackColor = false;
-            this.btnSalirLogin.Click += new System.EventHandler(this.btnSalirLogin_Click);
             // 
             // label5
             // 
@@ -318,29 +319,66 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.datalistadoDetalleCierreCaja);
+            this.panel7.Controls.Add(this.lblSerial);
             this.panel7.Controls.Add(this.idCajaCierre);
             this.panel7.Controls.Add(this.lblCaja);
             this.panel7.Controls.Add(this.lblidCaja);
             this.panel7.Controls.Add(this.datalistado_caja);
-            this.panel7.Controls.Add(this.lblSerial);
             this.panel7.Controls.Add(this.txtMensaje);
             this.panel7.Controls.Add(this.lblEstadoEnvio);
             this.panel7.Controls.Add(this.lblResultadoPass);
             this.panel7.Controls.Add(this.dataGridView1);
             this.panel7.Location = new System.Drawing.Point(6, 210);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(146, 326);
+            this.panel7.Size = new System.Drawing.Size(146, 404);
             this.panel7.TabIndex = 618;
             // 
             // lblSerial
             // 
-            this.lblSerial.AutoSize = true;
-            this.lblSerial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSerial.Location = new System.Drawing.Point(14, 176);
+            this.lblSerial.Location = new System.Drawing.Point(18, 177);
             this.lblSerial.Name = "lblSerial";
-            this.lblSerial.Size = new System.Drawing.Size(33, 13);
-            this.lblSerial.TabIndex = 628;
+            this.lblSerial.Size = new System.Drawing.Size(100, 20);
+            this.lblSerial.TabIndex = 633;
             this.lblSerial.Text = "Serial";
+            // 
+            // idCajaCierre
+            // 
+            this.idCajaCierre.AutoSize = true;
+            this.idCajaCierre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.idCajaCierre.Location = new System.Drawing.Point(24, 304);
+            this.idCajaCierre.Name = "idCajaCierre";
+            this.idCajaCierre.Size = new System.Drawing.Size(63, 13);
+            this.idCajaCierre.TabIndex = 632;
+            this.idCajaCierre.Text = "idCajaCierre";
+            // 
+            // lblCaja
+            // 
+            this.lblCaja.AutoSize = true;
+            this.lblCaja.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblCaja.Location = new System.Drawing.Point(21, 288);
+            this.lblCaja.Name = "lblCaja";
+            this.lblCaja.Size = new System.Drawing.Size(38, 13);
+            this.lblCaja.TabIndex = 631;
+            this.lblCaja.Text = "lblCaja";
+            // 
+            // lblidCaja
+            // 
+            this.lblidCaja.AutoSize = true;
+            this.lblidCaja.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblidCaja.Location = new System.Drawing.Point(17, 268);
+            this.lblidCaja.Name = "lblidCaja";
+            this.lblidCaja.Size = new System.Drawing.Size(46, 13);
+            this.lblidCaja.TabIndex = 630;
+            this.lblidCaja.Text = "lblidCaja";
+            // 
+            // datalistado_caja
+            // 
+            this.datalistado_caja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistado_caja.Location = new System.Drawing.Point(17, 204);
+            this.datalistado_caja.Name = "datalistado_caja";
+            this.datalistado_caja.Size = new System.Drawing.Size(77, 51);
+            this.datalistado_caja.TabIndex = 629;
             // 
             // lblEstadoEnvio
             // 
@@ -799,43 +837,13 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             this.espera.Tick += new System.EventHandler(this.espera_Tick);
             // 
-            // datalistado_caja
+            // datalistadoDetalleCierreCaja
             // 
-            this.datalistado_caja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datalistado_caja.Location = new System.Drawing.Point(17, 204);
-            this.datalistado_caja.Name = "datalistado_caja";
-            this.datalistado_caja.Size = new System.Drawing.Size(77, 51);
-            this.datalistado_caja.TabIndex = 629;
-            // 
-            // lblidCaja
-            // 
-            this.lblidCaja.AutoSize = true;
-            this.lblidCaja.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblidCaja.Location = new System.Drawing.Point(17, 268);
-            this.lblidCaja.Name = "lblidCaja";
-            this.lblidCaja.Size = new System.Drawing.Size(46, 13);
-            this.lblidCaja.TabIndex = 630;
-            this.lblidCaja.Text = "lblidCaja";
-            // 
-            // lblCaja
-            // 
-            this.lblCaja.AutoSize = true;
-            this.lblCaja.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblCaja.Location = new System.Drawing.Point(21, 288);
-            this.lblCaja.Name = "lblCaja";
-            this.lblCaja.Size = new System.Drawing.Size(38, 13);
-            this.lblCaja.TabIndex = 631;
-            this.lblCaja.Text = "lblCaja";
-            // 
-            // idCajaCierre
-            // 
-            this.idCajaCierre.AutoSize = true;
-            this.idCajaCierre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.idCajaCierre.Location = new System.Drawing.Point(24, 304);
-            this.idCajaCierre.Name = "idCajaCierre";
-            this.idCajaCierre.Size = new System.Drawing.Size(63, 13);
-            this.idCajaCierre.TabIndex = 632;
-            this.idCajaCierre.Text = "idCajaCierre";
+            this.datalistadoDetalleCierreCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistadoDetalleCierreCaja.Location = new System.Drawing.Point(17, 326);
+            this.datalistadoDetalleCierreCaja.Name = "datalistadoDetalleCierreCaja";
+            this.datalistadoDetalleCierreCaja.Size = new System.Drawing.Size(117, 75);
+            this.datalistadoDetalleCierreCaja.TabIndex = 634;
             // 
             // FormLogin
             // 
@@ -862,6 +870,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.pnlRestaurar.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistado_caja)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlVerificador.ResumeLayout(false);
             this.pnlVerificador.PerformLayout();
@@ -871,7 +880,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.MenuStrip15.ResumeLayout(false);
             this.MenuStrip15.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datalistado_caja)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleCierreCaja)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -927,10 +936,11 @@ namespace SistemaFarmacia.MODULOS.Login
         private System.Windows.Forms.Label lblEstadoEnvio;
         private System.Windows.Forms.RichTextBox txtMensaje;
         private System.Windows.Forms.Timer espera;
-        private System.Windows.Forms.Label lblSerial;
         private System.Windows.Forms.DataGridView datalistado_caja;
         private System.Windows.Forms.Label lblidCaja;
         private System.Windows.Forms.Label lblCaja;
         private System.Windows.Forms.Label idCajaCierre;
+        private System.Windows.Forms.TextBox lblSerial;
+        private System.Windows.Forms.DataGridView datalistadoDetalleCierreCaja;
     }
 }
