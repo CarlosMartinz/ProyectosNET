@@ -49,14 +49,15 @@ namespace SistemaFarmacia.MODULOS.Login
             this.label6 = new System.Windows.Forms.Label();
             this.txtMensaje = new System.Windows.Forms.RichTextBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.datalistadoDetalleCierreCaja = new System.Windows.Forms.DataGridView();
             this.lblSerial = new System.Windows.Forms.TextBox();
             this.idCajaCierre = new System.Windows.Forms.Label();
             this.lblCaja = new System.Windows.Forms.Label();
             this.lblidCaja = new System.Windows.Forms.Label();
-            this.datalistado_caja = new System.Windows.Forms.DataGridView();
+            this.datalistadoCaja = new System.Windows.Forms.DataGridView();
             this.lblEstadoEnvio = new System.Windows.Forms.Label();
             this.lblResultadoPass = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataListadoUsuarios = new System.Windows.Forms.DataGridView();
             this.lblLogin = new System.Windows.Forms.Label();
             this.pnlVerificador = new System.Windows.Forms.Panel();
             this.Button7 = new System.Windows.Forms.Button();
@@ -85,7 +86,14 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.espera = new System.Windows.Forms.Timer(this.components);
-            this.datalistadoDetalleCierreCaja = new System.Windows.Forms.DataGridView();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.lblidUsuario = new System.Windows.Forms.Label();
+            this.lblnombre = new System.Windows.Forms.Label();
+            this.lblAperturaCaja = new System.Windows.Forms.Label();
+            this.ptcCarga = new System.Windows.Forms.PictureBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.esperarCarga = new System.Windows.Forms.Timer(this.components);
+            this.esperarInicio = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsuarios.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -93,14 +101,15 @@ namespace SistemaFarmacia.MODULOS.Login
             this.panel3.SuspendLayout();
             this.pnlRestaurar.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistado_caja)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleCierreCaja)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoCaja)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListadoUsuarios)).BeginInit();
             this.pnlVerificador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).BeginInit();
             this.panel5.SuspendLayout();
             this.MenuStrip15.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleCierreCaja)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcCarga)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -319,20 +328,32 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.lblAperturaCaja);
+            this.panel7.Controls.Add(this.lblnombre);
+            this.panel7.Controls.Add(this.lblidUsuario);
+            this.panel7.Controls.Add(this.lblRol);
             this.panel7.Controls.Add(this.datalistadoDetalleCierreCaja);
             this.panel7.Controls.Add(this.lblSerial);
             this.panel7.Controls.Add(this.idCajaCierre);
             this.panel7.Controls.Add(this.lblCaja);
             this.panel7.Controls.Add(this.lblidCaja);
-            this.panel7.Controls.Add(this.datalistado_caja);
+            this.panel7.Controls.Add(this.datalistadoCaja);
             this.panel7.Controls.Add(this.txtMensaje);
             this.panel7.Controls.Add(this.lblEstadoEnvio);
             this.panel7.Controls.Add(this.lblResultadoPass);
-            this.panel7.Controls.Add(this.dataGridView1);
-            this.panel7.Location = new System.Drawing.Point(6, 210);
+            this.panel7.Controls.Add(this.dataListadoUsuarios);
+            this.panel7.Location = new System.Drawing.Point(6, 181);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(146, 404);
+            this.panel7.Size = new System.Drawing.Size(146, 452);
             this.panel7.TabIndex = 618;
+            // 
+            // datalistadoDetalleCierreCaja
+            // 
+            this.datalistadoDetalleCierreCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistadoDetalleCierreCaja.Location = new System.Drawing.Point(17, 326);
+            this.datalistadoDetalleCierreCaja.Name = "datalistadoDetalleCierreCaja";
+            this.datalistadoDetalleCierreCaja.Size = new System.Drawing.Size(117, 75);
+            this.datalistadoDetalleCierreCaja.TabIndex = 634;
             // 
             // lblSerial
             // 
@@ -346,7 +367,7 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             this.idCajaCierre.AutoSize = true;
             this.idCajaCierre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.idCajaCierre.Location = new System.Drawing.Point(24, 304);
+            this.idCajaCierre.Location = new System.Drawing.Point(14, 310);
             this.idCajaCierre.Name = "idCajaCierre";
             this.idCajaCierre.Size = new System.Drawing.Size(63, 13);
             this.idCajaCierre.TabIndex = 632;
@@ -356,7 +377,7 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             this.lblCaja.AutoSize = true;
             this.lblCaja.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblCaja.Location = new System.Drawing.Point(21, 288);
+            this.lblCaja.Location = new System.Drawing.Point(14, 288);
             this.lblCaja.Name = "lblCaja";
             this.lblCaja.Size = new System.Drawing.Size(38, 13);
             this.lblCaja.TabIndex = 631;
@@ -372,13 +393,13 @@ namespace SistemaFarmacia.MODULOS.Login
             this.lblidCaja.TabIndex = 630;
             this.lblidCaja.Text = "lblidCaja";
             // 
-            // datalistado_caja
+            // datalistadoCaja
             // 
-            this.datalistado_caja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datalistado_caja.Location = new System.Drawing.Point(17, 204);
-            this.datalistado_caja.Name = "datalistado_caja";
-            this.datalistado_caja.Size = new System.Drawing.Size(77, 51);
-            this.datalistado_caja.TabIndex = 629;
+            this.datalistadoCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistadoCaja.Location = new System.Drawing.Point(17, 204);
+            this.datalistadoCaja.Name = "datalistadoCaja";
+            this.datalistadoCaja.Size = new System.Drawing.Size(77, 51);
+            this.datalistadoCaja.TabIndex = 629;
             // 
             // lblEstadoEnvio
             // 
@@ -400,13 +421,13 @@ namespace SistemaFarmacia.MODULOS.Login
             this.lblResultadoPass.TabIndex = 625;
             this.lblResultadoPass.Text = "Resultado del password";
             // 
-            // dataGridView1
+            // dataListadoUsuarios
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 11);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(77, 51);
-            this.dataGridView1.TabIndex = 616;
+            this.dataListadoUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataListadoUsuarios.Location = new System.Drawing.Point(17, 11);
+            this.dataListadoUsuarios.Name = "dataListadoUsuarios";
+            this.dataListadoUsuarios.Size = new System.Drawing.Size(77, 51);
+            this.dataListadoUsuarios.TabIndex = 616;
             // 
             // lblLogin
             // 
@@ -421,6 +442,7 @@ namespace SistemaFarmacia.MODULOS.Login
             // pnlVerificador
             // 
             this.pnlVerificador.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlVerificador.Controls.Add(this.ptcCarga);
             this.pnlVerificador.Controls.Add(this.Button7);
             this.pnlVerificador.Controls.Add(this.Button2);
             this.pnlVerificador.Controls.Add(this.PictureBox4);
@@ -837,13 +859,74 @@ namespace SistemaFarmacia.MODULOS.Login
             // 
             this.espera.Tick += new System.EventHandler(this.espera_Tick);
             // 
-            // datalistadoDetalleCierreCaja
+            // lblRol
             // 
-            this.datalistadoDetalleCierreCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datalistadoDetalleCierreCaja.Location = new System.Drawing.Point(17, 326);
-            this.datalistadoDetalleCierreCaja.Name = "datalistadoDetalleCierreCaja";
-            this.datalistadoDetalleCierreCaja.Size = new System.Drawing.Size(117, 75);
-            this.datalistadoDetalleCierreCaja.TabIndex = 634;
+            this.lblRol.AutoSize = true;
+            this.lblRol.ForeColor = System.Drawing.Color.White;
+            this.lblRol.Location = new System.Drawing.Point(17, 415);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(23, 13);
+            this.lblRol.TabIndex = 635;
+            this.lblRol.Text = "Rol";
+            // 
+            // lblidUsuario
+            // 
+            this.lblidUsuario.AutoSize = true;
+            this.lblidUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblidUsuario.Location = new System.Drawing.Point(17, 432);
+            this.lblidUsuario.Name = "lblidUsuario";
+            this.lblidUsuario.Size = new System.Drawing.Size(15, 13);
+            this.lblidUsuario.TabIndex = 636;
+            this.lblidUsuario.Text = "id";
+            // 
+            // lblnombre
+            // 
+            this.lblnombre.AutoSize = true;
+            this.lblnombre.ForeColor = System.Drawing.Color.White;
+            this.lblnombre.Location = new System.Drawing.Point(59, 432);
+            this.lblnombre.Name = "lblnombre";
+            this.lblnombre.Size = new System.Drawing.Size(42, 13);
+            this.lblnombre.TabIndex = 637;
+            this.lblnombre.Text = "nombre";
+            // 
+            // lblAperturaCaja
+            // 
+            this.lblAperturaCaja.ForeColor = System.Drawing.Color.White;
+            this.lblAperturaCaja.Location = new System.Drawing.Point(99, 230);
+            this.lblAperturaCaja.Name = "lblAperturaCaja";
+            this.lblAperturaCaja.Size = new System.Drawing.Size(44, 23);
+            this.lblAperturaCaja.TabIndex = 638;
+            this.lblAperturaCaja.Text = "lblAperturaCaja";
+            // 
+            // ptcCarga
+            // 
+            this.ptcCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.ptcCarga.Image = ((System.Drawing.Image)(resources.GetObject("ptcCarga.Image")));
+            this.ptcCarga.Location = new System.Drawing.Point(-52, -18);
+            this.ptcCarga.Name = "ptcCarga";
+            this.ptcCarga.Size = new System.Drawing.Size(433, 645);
+            this.ptcCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptcCarga.TabIndex = 624;
+            this.ptcCarga.TabStop = false;
+            this.ptcCarga.Visible = false;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar.Location = new System.Drawing.Point(716, 603);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(100, 23);
+            this.progressBar.TabIndex = 625;
+            this.progressBar.Visible = false;
+            // 
+            // esperarCarga
+            // 
+            this.esperarCarga.Interval = 200;
+            this.esperarCarga.Tick += new System.EventHandler(this.esperarCarga_Tick);
+            // 
+            // esperarInicio
+            // 
+            this.esperarInicio.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormLogin
             // 
@@ -851,6 +934,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(900, 645);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.pnlVerificador);
             this.Controls.Add(this.pnlRestaurar);
             this.Controls.Add(this.panel7);
@@ -870,8 +954,9 @@ namespace SistemaFarmacia.MODULOS.Login
             this.pnlRestaurar.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistado_caja)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleCierreCaja)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoCaja)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListadoUsuarios)).EndInit();
             this.pnlVerificador.ResumeLayout(false);
             this.pnlVerificador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).EndInit();
@@ -880,7 +965,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.MenuStrip15.ResumeLayout(false);
             this.MenuStrip15.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleCierreCaja)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcCarga)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -919,7 +1004,7 @@ namespace SistemaFarmacia.MODULOS.Login
         internal System.Windows.Forms.Button btn8;
         internal System.Windows.Forms.Button btn7;
         internal System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataListadoUsuarios;
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Panel pnlRestaurar;
         internal System.Windows.Forms.Button btnVolver;
@@ -936,11 +1021,19 @@ namespace SistemaFarmacia.MODULOS.Login
         private System.Windows.Forms.Label lblEstadoEnvio;
         private System.Windows.Forms.RichTextBox txtMensaje;
         private System.Windows.Forms.Timer espera;
-        private System.Windows.Forms.DataGridView datalistado_caja;
+        private System.Windows.Forms.DataGridView datalistadoCaja;
         private System.Windows.Forms.Label lblidCaja;
         private System.Windows.Forms.Label lblCaja;
         private System.Windows.Forms.Label idCajaCierre;
         private System.Windows.Forms.TextBox lblSerial;
         private System.Windows.Forms.DataGridView datalistadoDetalleCierreCaja;
+        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.Label lblidUsuario;
+        private System.Windows.Forms.Label lblnombre;
+        private System.Windows.Forms.Label lblAperturaCaja;
+        internal System.Windows.Forms.PictureBox ptcCarga;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Timer esperarCarga;
+        private System.Windows.Forms.Timer esperarInicio;
     }
 }

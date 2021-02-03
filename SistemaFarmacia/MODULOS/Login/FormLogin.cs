@@ -18,6 +18,10 @@ namespace SistemaFarmacia.MODULOS.Login
     {
         int contador;
         int contadorCajas;
+        int contadorMovimientoCaja;
+        public static String IdUsuario;
+        public static String IdCajaApertura;
+        
         public FormLogin()
         {
             InitializeComponent();
@@ -82,8 +86,10 @@ namespace SistemaFarmacia.MODULOS.Login
             pnlVerificador.Visible = false;
             btnVolver.Visible = false;
             pnlUsuarios.Visible = true;
+            ptcCarga.Visible = false;
 
             espera.Start();
+            //esperarInicio.Start();
         }
 
         private void cargarValidarText(Object sender, EventArgs e)
@@ -91,12 +97,14 @@ namespace SistemaFarmacia.MODULOS.Login
             lblLogin.Text = ((Label)sender).Text;
             pnlVerificador.Visible = true;
             pnlUsuarios.Visible = false;
+            mostrarPermiso();
         }
        private void cargarValidarImg(Object sender, EventArgs e)
        {
             lblLogin.Text = ((PictureBox)sender).Tag.ToString();
             pnlVerificador.Visible = true;
             pnlUsuarios.Visible = false;
+            mostrarPermiso();
         }
 
         private void txtpassword_TextChanged(object sender, EventArgs e)
@@ -110,6 +118,8 @@ namespace SistemaFarmacia.MODULOS.Login
             pnlVerificador.Visible = false;
             pnlUsuarios.Visible = true;
             txtpassword.Text = "";
+            lblRol.Text = "";
+            lblLogin.Text = "";
         }
 
         /************************************************/
@@ -120,14 +130,59 @@ namespace SistemaFarmacia.MODULOS.Login
             validarUsuario();
             contar();
 
+            try
+            {
+                lblidUsuario.Text = dataListadoUsuarios.SelectedCells[1].Value.ToString();
+                lblnombre.Text = dataListadoUsuarios.SelectedCells[2].Value.ToString();
+                IdUsuario = lblidUsuario.Text;
+            }
+            catch{}
+
             if (contador > 0)
             {
                 listarAPERTURASDetalleCierresCaja();
                 contarAperturasDetalleCierresCaja();
-                if(contadorCajas > 0) 
-                { 
-                    
+                if(contadorCajas != 0) 
+                {
+                    aperturarDetalleCierreCaja();
+                    lblAperturaCaja.Text = "Nuevo :v";
+
+                    esperarCarga.Start();
                 }
+            }
+        }
+
+        private void aperturarDetalleCierreCaja()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = Data.db_conexion.conexion;
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd = new SqlCommand("insertarDetallesCajaCerrada", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@fechaInic", DateTime.Today);
+                cmd.Parameters.AddWithValue("@fechaFin", DateTime.Today);
+                cmd.Parameters.AddWithValue("@fechaCierre", DateTime.Today);
+                cmd.Parameters.AddWithValue("@ingreso", "0.00");
+                cmd.Parameters.AddWithValue("@egreso", "0.00");
+                cmd.Parameters.AddWithValue("@saldo", "0.00");
+                cmd.Parameters.AddWithValue("@idUsuario", lblidUsuario.Text);
+                cmd.Parameters.AddWithValue("@totalCalculado", "0.00");
+                cmd.Parameters.AddWithValue("@totalReal", "0.00");
+
+                cmd.Parameters.AddWithValue("@estado", "Aperturada");
+                cmd.Parameters.AddWithValue("@diferencia", "0.00");
+                cmd.Parameters.AddWithValue("@idCaja", lblidCaja.Text);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -143,8 +198,31 @@ namespace SistemaFarmacia.MODULOS.Login
         private void contar()
         {
             int x;
-            x = dataGridView1.Rows.Count;
+            x = dataListadoUsuarios.Rows.Count;
             contador = (x);
+        }
+
+        private void mostrarPermiso()
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = Data.db_conexion.conexion;
+
+            SqlCommand com = new SqlCommand("mostrarPermisosPorUsuariosRolUnico", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@login", lblLogin.Text);
+            string importe;
+
+            try
+            {
+                con.Open();
+                importe = Convert.ToString(com.ExecuteScalar());
+                con.Close();
+                lblRol.Text = importe;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void validarUsuario()
@@ -162,7 +240,7 @@ namespace SistemaFarmacia.MODULOS.Login
                 mos.SelectCommand.Parameters.AddWithValue("@login", lblLogin.Text);
                 mos.SelectCommand.Parameters.AddWithValue("@pass", txtpassword.Text);
                 mos.Fill(dt);
-                dataGridView1.DataSource = dt;
+                dataListadoUsuarios.DataSource = dt;
                 con.Close();
             }
             catch (Exception ex)
@@ -275,7 +353,7 @@ namespace SistemaFarmacia.MODULOS.Login
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Serial", lblSerial.Text);
                 da.Fill(dt);
-                datalistado_caja.DataSource = dt;
+                datalistadoCaja.DataSource = dt;
                 con.Close();
 
             }
@@ -360,9 +438,9 @@ namespace SistemaFarmacia.MODULOS.Login
                     mostrarCajaPorSerial();
                     try
                     {
-                        lblidCaja.Text = datalistado_caja.SelectedCells[1].Value.ToString();
-                        lblCaja.Text = datalistado_caja.SelectedCells[2].Value.ToString();
-                        idCajaCierre.Text = lblidCaja.Text;
+                        lblidCaja.Text = datalistadoCaja.SelectedCells[1].Value.ToString();
+                        lblCaja.Text = datalistadoCaja.SelectedCells[2].Value.ToString();
+                        IdCajaApertura = lblidCaja.Text;
                     }
                     catch (Exception ex)
                     {
@@ -457,7 +535,7 @@ namespace SistemaFarmacia.MODULOS.Login
 
         private void btn_insertar_Click(object sender, EventArgs e)
         {
-
+            iniciar();
         }
 
         private void tocultar_Click(object sender, EventArgs e)
@@ -472,6 +550,47 @@ namespace SistemaFarmacia.MODULOS.Login
             txtpassword.PasswordChar = '\0';
             tver.Visible = false;
             tocultar.Visible = true;
+        }
+
+        private void esperarCarga_Tick(object sender, EventArgs e)
+        {
+            if (progressBar.Value < 100)
+            {
+                BackColor = Color.FromArgb(26, 26, 26);
+                progressBar.Value = progressBar.Value + 10;
+                ptcCarga.Visible = true;
+
+            }
+            else
+            {
+                progressBar.Value = 0;
+                esperarCarga.Stop();
+                if (lblAperturaCaja.Text == "Nuevo")
+                {
+                    this.Hide();
+                    Caja.FormApertura frm = new Caja.FormApertura();
+                    frm.ShowDialog();
+                    this.Hide();
+                }
+                else
+                {
+                    this.Hide();
+                    MODULOS.FormPrincipal frm = new FormPrincipal();
+                    frm.ShowDialog();
+                    this.Hide();
+                }
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (progressBar.Value < 100)
+            {
+                BackColor = Color.FromArgb(26, 26, 26);
+                progressBar.Value = progressBar.Value + 10;
+                ptcCarga.Visible = true;
+
+            }
         }
     }
 }
