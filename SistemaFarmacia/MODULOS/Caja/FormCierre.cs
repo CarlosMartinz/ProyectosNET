@@ -15,5 +15,10 @@ namespace SistemaFarmacia.MODULOS.Caja
         {
             InitializeComponent();
         }
+
+        private void FormCierre_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

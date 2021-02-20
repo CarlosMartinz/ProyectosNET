@@ -38,3 +38,4 @@ C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\Sis
 C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.MODULOS.Login.FormLogin.resources
 C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.MODULOS.Caja.FormApertura.resources
 C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.MODULOS.Menu.Facturacion.FormFacturar.resources
+C:\Users\Charly\Desktop\CarlosMartinz\ProyectosNET\SistemaFarmacia\obj\Debug\SistemaFarmacia.MODULOS.Caja.FormCierre.resources

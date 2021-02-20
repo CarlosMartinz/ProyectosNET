@@ -103,7 +103,8 @@ namespace SistemaFarmacia.MODULOS
             // facturarToolStripMenuItem
             // 
             this.facturarToolStripMenuItem.Name = "facturarToolStripMenuItem";
-            this.facturarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.facturarToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.facturarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.facturarToolStripMenuItem.Text = "Facturar";
             this.facturarToolStripMenuItem.Click += new System.EventHandler(this.facturarToolStripMenuItem_Click);
             // 

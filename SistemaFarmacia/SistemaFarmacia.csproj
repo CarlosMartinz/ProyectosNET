@@ -85,6 +85,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MODULOS\Caja\FormCierre.resx">
+      <DependentUpon>FormCierre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MODULOS\MenuPrincipal\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>

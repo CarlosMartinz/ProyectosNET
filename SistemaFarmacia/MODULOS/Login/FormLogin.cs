@@ -87,9 +87,7 @@ namespace SistemaFarmacia.MODULOS.Login
             btnVolver.Visible = false;
             pnlUsuarios.Visible = true;
             ptcCarga.Visible = false;
-
             espera.Start();
-            //esperarInicio.Start();
         }
 
         private void cargarValidarText(Object sender, EventArgs e)
@@ -105,7 +103,7 @@ namespace SistemaFarmacia.MODULOS.Login
             pnlVerificador.Visible = true;
             pnlUsuarios.Visible = false;
             mostrarPermiso();
-        }
+       }
 
         private void txtpassword_TextChanged(object sender, EventArgs e)
         {
@@ -125,32 +123,6 @@ namespace SistemaFarmacia.MODULOS.Login
         /************************************************/
         /*       Control de validacion de datos         */
         /************************************************/
-        private void iniciar()
-        {
-            validarUsuario();
-            contar();
-
-            try
-            {
-                lblidUsuario.Text = dataListadoUsuarios.SelectedCells[1].Value.ToString();
-                lblnombre.Text = dataListadoUsuarios.SelectedCells[2].Value.ToString();
-                IdUsuario = lblidUsuario.Text;
-            }
-            catch{}
-
-            if (contador > 0)
-            {
-                listarAPERTURASDetalleCierresCaja();
-                contarAperturasDetalleCierresCaja();
-                if(contadorCajas != 0) 
-                {
-                    aperturarDetalleCierreCaja();
-                    lblAperturaCaja.Text = "Nuevo :v";
-
-                    esperarCarga.Start();
-                }
-            }
-        }
 
         private void aperturarDetalleCierreCaja()
         {
@@ -178,11 +150,122 @@ namespace SistemaFarmacia.MODULOS.Login
 
                 cmd.ExecuteNonQuery();
                 con.Close();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void validarUsuario()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter mos;
+                SqlConnection con = new SqlConnection();
+                //Data 'Carpeta', db_conexion 'Clase', conexion 'proceso'
+                con.ConnectionString = Data.db_conexion.conexion;
+                con.Open();
+                mos = new SqlDataAdapter("validarUsuario", con);
+                mos.SelectCommand.CommandType = CommandType.StoredProcedure;
+                mos.SelectCommand.Parameters.AddWithValue("@login", lblLogin.Text);
+                mos.SelectCommand.Parameters.AddWithValue("@pass", txtpassword.Text);
+                mos.Fill(dt);
+                dataListadoUsuarios.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                lblidUsuario.Text = dataListadoUsuarios.Rows[0].Cells[0].Value.ToString();
+                lblnombre.Text = dataListadoUsuarios.Rows[0].Cells[1].Value.ToString();
+                //IdUsuario = lblidUsuario.Text;
+            }
+            catch { }
+        }
+
+        private void iniciar()
+        {
+            validarUsuario();
+            contar();
+
+            if (contador > 0)
+            {
+                listarAPERTURASDetalleCierresCaja();
+                contarAperturasDetalleCierresCaja();
+                if (contadorCajas == 0 & lblRol.Text != "")
+                {
+                    //aperturarDetalleCierreCaja();
+                    lblAperturaCaja.Text = "Nuevo";
+
+                    esperarCarga.Start();
+                   // MessageBox.Show(lblidUsuario.Text, "Prueba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else 
+                {
+                    //esperarCarga.Start();
+                    MessageBox.Show(lblidUsuario.Text, "Prueba");
+                    /*if (lblRol.Text != "Solo Ventas (no esta autorizado para manejar dinero)")
+                    {
+                        MOSTRAR_MOVIMIENTOS_DE_CAJA_POR_SERIAL_y_usuario();
+                        contar_MOSTRAR_MOVIMIENTOS_DE_CAJA_POR_SERIAL_y_usuario();
+                        try
+                        {
+                            lblusuario_queinicioCaja.Text = datalistado_detalle_cierre_de_caja.SelectedCells[1].Value.ToString();
+                            lblnombredeCajero.Text = datalistado_detalle_cierre_de_caja.SelectedCells[2].Value.ToString();
+                        }
+                        catch
+                        {
+
+                        }
+                        if (contador_Movimientos_de_caja == 0)
+                        {
+
+                            if (lblusuario_queinicioCaja.Text != "admin" & txtlogin.Text == "admin")
+                            {
+                                MessageBox.Show("Continuaras Turno de *" + lblnombredeCajero.Text + " Todos los Registros seran con ese Usuario", "Caja Iniciada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                lblpermisodeCaja.Text = "correcto";
+                            }
+                            if (lblusuario_queinicioCaja.Text == "admin" & txtlogin.Text == "admin")
+                            {
+
+                                lblpermisodeCaja.Text = "correcto";
+                            }
+
+                            else if (lblusuario_queinicioCaja.Text != txtlogin.Text)
+                            {
+                                MessageBox.Show("Para poder continuar con el Turno de *" + lblnombredeCajero.Text + "* ,Inicia sesion con el Usuario " + lblusuario_queinicioCaja.Text + " -ó-el Usuario *admin*", "Caja Iniciada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                lblpermisodeCaja.Text = "vacio";
+
+                            }
+                            else if (lblusuario_queinicioCaja.Text == txtlogin.Text)
+                            {
+                                lblpermisodeCaja.Text = "correcto";
+                            }
+                        }
+                        else
+                        {
+                            lblpermisodeCaja.Text = "correcto";
+                        }
+
+                        if (lblpermisodeCaja.Text == "correcto")
+                        {
+                            lblApertura_De_caja.Text = "Aperturado";
+                            timer2.Start();
+
+                        }
+
+                    }
+                    else
+                    {
+                        esperarCarga.Start();
+                    }*/
+                }
             }
         }
 
@@ -225,29 +308,6 @@ namespace SistemaFarmacia.MODULOS.Login
             }
         }
 
-        private void validarUsuario()
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                SqlDataAdapter mos;
-                SqlConnection con = new SqlConnection();
-                //Data 'Carpeta', db_conexion 'Clase', conexion 'proceso'
-                con.ConnectionString = Data.db_conexion.conexion;
-                con.Open();
-                mos = new SqlDataAdapter("validarUsuario", con);
-                mos.SelectCommand.CommandType = CommandType.StoredProcedure;
-                mos.SelectCommand.Parameters.AddWithValue("@login", lblLogin.Text);
-                mos.SelectCommand.Parameters.AddWithValue("@pass", txtpassword.Text);
-                mos.Fill(dt);
-                dataListadoUsuarios.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
          private void buscarUserCorreo()
          {
             try
@@ -309,8 +369,6 @@ namespace SistemaFarmacia.MODULOS.Login
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR, revisa tu correo Electronico", "Restauracion de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //lblEstado_de_envio.Text = "Correo no registrado";
             }
 
         }
@@ -364,28 +422,6 @@ namespace SistemaFarmacia.MODULOS.Login
             }
         }
 
-          /*****************************************/
-          /*   Control de visibilidad de paneles   */
-          /*****************************************/
-        private void button1_Click(object sender, EventArgs e)
-        {
-            pnlRestaurar.Visible = false;
-            btnSalirLogin.Visible = false;
-            btnVolver.Visible = false;
-            pnlVerificador.Visible = true;
-            pnlUsuarios.Visible = false;
-        }
-
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            mostrarCorreos();
-            pnlRestaurar.Visible = true;
-            btnSalirLogin.Visible = false;
-            btnVolver.Visible = true;
-            pnlVerificador.Visible = false;
-            pnlUsuarios.Visible = false;
-        }
-
         private void listarAPERTURASDetalleCierresCaja()
         {
             try
@@ -409,21 +445,6 @@ namespace SistemaFarmacia.MODULOS.Login
             }
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            mostrarCorreos();
-            pnlRestaurar.Visible = true;
-            btnSalirLogin.Visible = true;
-            btnVolver.Visible = false;
-            pnlVerificador.Visible = false;
-            pnlUsuarios.Visible = false;
-        }
-
         private void espera_Tick(object sender, EventArgs e)
         {
             espera.Stop();
@@ -438,20 +459,76 @@ namespace SistemaFarmacia.MODULOS.Login
                     mostrarCajaPorSerial();
                     try
                     {
-                        lblidCaja.Text = datalistadoCaja.SelectedCells[1].Value.ToString();
-                        lblCaja.Text = datalistadoCaja.SelectedCells[2].Value.ToString();
-                        IdCajaApertura = lblidCaja.Text;
+                        lblidCaja.Text = datalistadoCaja.Rows[0].Cells[0].Value.ToString();
+                        lblCaja.Text = datalistadoCaja.Rows[0].Cells[1].Value.ToString();
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                    catch { }
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex){MessageBox.Show(ex.Message);}
+        }
+
+        private void esperarCarga_Tick(object sender, EventArgs e)
+        {
+            if (progressBar.Value < 100)
             {
-                MessageBox.Show(ex.Message);
+                BackColor = Color.FromArgb(26, 26, 26);
+                progressBar.Value = progressBar.Value + 10;
+                ptcCarga.Visible = true;
+
             }
+            else
+            {
+                progressBar.Value = 0;
+                esperarCarga.Stop();
+                if (lblAperturaCaja.Text == "Nuevo")
+                {
+                    this.Hide();
+                    Caja.FormApertura frm = new Caja.FormApertura();
+                    frm.ShowDialog();
+                    this.Hide();
+                }
+                else
+                {
+                    this.Hide();
+                    FormPrincipal frm = new FormPrincipal();
+                    frm.ShowDialog();
+                    this.Hide();
+                }
+            }
+        }
+
+        /*****************************************/
+        /*   Control de visibilidad de paneles   */
+        /*****************************************/
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            mostrarCorreos();
+            pnlRestaurar.Visible = true;
+            btnSalirLogin.Visible = true;
+            btnVolver.Visible = false;
+            pnlVerificador.Visible = false;
+            pnlUsuarios.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pnlRestaurar.Visible = false;
+            btnSalirLogin.Visible = false;
+            btnVolver.Visible = false;
+            pnlVerificador.Visible = true;
+            pnlUsuarios.Visible = false;
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            mostrarCorreos();
+            pnlRestaurar.Visible = true;
+            btnSalirLogin.Visible = false;
+            btnVolver.Visible = true;
+            pnlVerificador.Visible = false;
+            pnlUsuarios.Visible = false;
         }
 
 
@@ -530,7 +607,7 @@ namespace SistemaFarmacia.MODULOS.Login
                     txtpassword.Text = Mid(txtpassword.Text, 1, largo - 1);
                 }
             }
-            catch{}
+            catch { }
         }
 
         private void btn_insertar_Click(object sender, EventArgs e)
@@ -550,47 +627,6 @@ namespace SistemaFarmacia.MODULOS.Login
             txtpassword.PasswordChar = '\0';
             tver.Visible = false;
             tocultar.Visible = true;
-        }
-
-        private void esperarCarga_Tick(object sender, EventArgs e)
-        {
-            if (progressBar.Value < 100)
-            {
-                BackColor = Color.FromArgb(26, 26, 26);
-                progressBar.Value = progressBar.Value + 10;
-                ptcCarga.Visible = true;
-
-            }
-            else
-            {
-                progressBar.Value = 0;
-                esperarCarga.Stop();
-                if (lblAperturaCaja.Text == "Nuevo")
-                {
-                    this.Hide();
-                    Caja.FormApertura frm = new Caja.FormApertura();
-                    frm.ShowDialog();
-                    this.Hide();
-                }
-                else
-                {
-                    this.Hide();
-                    MODULOS.FormPrincipal frm = new FormPrincipal();
-                    frm.ShowDialog();
-                    this.Hide();
-                }
-            }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (progressBar.Value < 100)
-            {
-                BackColor = Color.FromArgb(26, 26, 26);
-                progressBar.Value = progressBar.Value + 10;
-                ptcCarga.Visible = true;
-
-            }
         }
     }
 }
