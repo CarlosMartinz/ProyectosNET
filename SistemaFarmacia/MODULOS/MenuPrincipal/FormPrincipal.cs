@@ -50,5 +50,24 @@ namespace SistemaFarmacia.MODULOS
         {
             Close();
         }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            iniciarFacturar();
+        }
+
+        private void iniciarFacturar()
+        {
+            Menu.Facturacion.FormFacturar nuevo = new Menu.Facturacion.FormFacturar();
+            nuevo.MdiParent = this;
+            nuevo.Dock = DockStyle.Fill;
+            nuevo.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Caja.FormCierre form = new Caja.FormCierre();
+            form.ShowDialog();
+        }
     }
 }

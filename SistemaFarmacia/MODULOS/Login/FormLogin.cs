@@ -80,6 +80,7 @@ namespace SistemaFarmacia.MODULOS.Login
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            //timer1.Start();
             cmdtrarUsuarios();
             mostrarCorreos();
             pnlRestaurar.Visible = false;
@@ -179,84 +180,72 @@ namespace SistemaFarmacia.MODULOS.Login
             {
                 MessageBox.Show(ex.Message);
             }
-
-            try
-            {
-                lblidUsuario.Text = dataListadoUsuarios.Rows[0].Cells[0].Value.ToString();
-                lblnombre.Text = dataListadoUsuarios.Rows[0].Cells[1].Value.ToString();
-                //IdUsuario = lblidUsuario.Text;
-            }
-            catch { }
         }
 
         private void iniciar()
         {
             validarUsuario();
             contar();
-
+            try
+            {
+                lblidUsuario.Text = dataListadoUsuarios.Rows[0].Cells[0].Value.ToString();
+                lblnombre.Text = dataListadoUsuarios.Rows[0].Cells[1].Value.ToString();
+                IdUsuario = lblidUsuario.Text;
+            }
+            catch { }
             if (contador > 0)
             {
                 listarAPERTURASDetalleCierresCaja();
                 contarAperturasDetalleCierresCaja();
-                if (contadorCajas == 0 & lblRol.Text != "")
+                if (contadorCajas == 0 & lblRol.Text != "Solo toma pedidos (No tiene acceso a cobros)")
                 {
-                    //aperturarDetalleCierreCaja();
+                    aperturarDetalleCierreCaja();
                     lblAperturaCaja.Text = "Nuevo";
-
                     esperarCarga.Start();
-                   // MessageBox.Show(lblidUsuario.Text, "Prueba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else 
                 {
-                    //esperarCarga.Start();
-                    MessageBox.Show(lblidUsuario.Text, "Prueba");
-                    /*if (lblRol.Text != "Solo Ventas (no esta autorizado para manejar dinero)")
+                    if (lblRol.Text != "Solo toma pedidos (No tiene acceso a cobros)")
                     {
-                        MOSTRAR_MOVIMIENTOS_DE_CAJA_POR_SERIAL_y_usuario();
-                        contar_MOSTRAR_MOVIMIENTOS_DE_CAJA_POR_SERIAL_y_usuario();
+                        mostrarMovimientoCajaSerialUsuario();
+                        contarMovimientoCajaSerialUsuario();
                         try
                         {
-                            lblusuario_queinicioCaja.Text = datalistado_detalle_cierre_de_caja.SelectedCells[1].Value.ToString();
-                            lblnombredeCajero.Text = datalistado_detalle_cierre_de_caja.SelectedCells[2].Value.ToString();
+                            lblValidarID.Text = datalistadoDetalleCierreCaja.Rows[0].Cells[0].Value.ToString();
+                            lblnombre.Text = datalistadoDetalleCierreCaja.Rows[0].Cells[1].Value.ToString();
                         }
-                        catch
+                        catch { }
+                        if (contadorMovimientoCaja == 0)
                         {
 
-                        }
-                        if (contador_Movimientos_de_caja == 0)
-                        {
-
-                            if (lblusuario_queinicioCaja.Text != "admin" & txtlogin.Text == "admin")
+                            if (lblValidarID.Text != "admin" & lblLogin.Text == "admin")
                             {
-                                MessageBox.Show("Continuaras Turno de *" + lblnombredeCajero.Text + " Todos los Registros seran con ese Usuario", "Caja Iniciada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                lblpermisodeCaja.Text = "correcto";
+                                MessageBox.Show("Continuaras Turno de " + lblnombre.Text + " Todos los Registros seran con ese Usuario", "Caja Iniciada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                lblPermisoCaja.Text = "correcto";
                             }
-                            if (lblusuario_queinicioCaja.Text == "admin" & txtlogin.Text == "admin")
+                            if (lblValidarID.Text == "admin" & lblLogin.Text == "admin")
                             {
-
-                                lblpermisodeCaja.Text = "correcto";
+                                lblPermisoCaja.Text = "correcto";
                             }
-
-                            else if (lblusuario_queinicioCaja.Text != txtlogin.Text)
+                            else if (lblValidarID.Text != lblLogin.Text)
                             {
-                                MessageBox.Show("Para poder continuar con el Turno de *" + lblnombredeCajero.Text + "* ,Inicia sesion con el Usuario " + lblusuario_queinicioCaja.Text + " -ó-el Usuario *admin*", "Caja Iniciada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                lblpermisodeCaja.Text = "vacio";
-
+                                MessageBox.Show("Para poder continuar con el Turno de " + lblnombre.Text + ", inicia sesion con el Usuario " + lblValidarID.Text + " -ó-el Usuario *admin*", "Caja Iniciada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                lblPermisoCaja.Text = "vacio";
                             }
-                            else if (lblusuario_queinicioCaja.Text == txtlogin.Text)
+                            else if (lblValidarID.Text == lblLogin.Text)
                             {
-                                lblpermisodeCaja.Text = "correcto";
+                                lblPermisoCaja.Text = "correcto";
                             }
                         }
                         else
                         {
-                            lblpermisodeCaja.Text = "correcto";
+                            lblPermisoCaja.Text = "correcto";
                         }
 
-                        if (lblpermisodeCaja.Text == "correcto")
+                        if (lblPermisoCaja.Text == "correcto")
                         {
-                            lblApertura_De_caja.Text = "Aperturado";
-                            timer2.Start();
+                            lblAperturaCaja.Text = "Aperturada";
+                            esperarCarga.Start();
 
                         }
 
@@ -264,8 +253,32 @@ namespace SistemaFarmacia.MODULOS.Login
                     else
                     {
                         esperarCarga.Start();
-                    }*/
+                    }
                 }
+            }
+        }
+
+        private void mostrarMovimientoCajaSerialUsuario()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = Data.db_conexion.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrarMovimientosCajaSerialYUsuario", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@serial", lblSerial.Text);
+                da.SelectCommand.Parameters.AddWithValue("@idUsuario", lblidUsuario.Text);
+                da.Fill(dt);
+                dataListadoMovimientoValidar.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -278,6 +291,12 @@ namespace SistemaFarmacia.MODULOS.Login
 
         }
 
+        private void contarMovimientoCajaSerialUsuario()
+        {
+            int x;
+            x = dataListadoMovimientoValidar.Rows.Count;
+            contadorMovimientoCaja = (x);
+        }
         private void contar()
         {
             int x;
@@ -481,7 +500,7 @@ namespace SistemaFarmacia.MODULOS.Login
             {
                 progressBar.Value = 0;
                 esperarCarga.Stop();
-                if (lblAperturaCaja.Text == "Nuevo")
+                if (lblAperturaCaja.Text == "Nuevo" & lblRol.Text != "Solo toma pedidos (No tiene acceso a cobros)")
                 {
                     this.Hide();
                     Caja.FormApertura frm = new Caja.FormApertura();
@@ -627,6 +646,20 @@ namespace SistemaFarmacia.MODULOS.Login
             txtpassword.PasswordChar = '\0';
             tver.Visible = false;
             tocultar.Visible = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (progressBar.Value < 50)
+            {
+                BackColor = Color.FromArgb(26, 26, 26);
+                progressBar.Value = progressBar.Value + 10;
+                ptcCarga.Visible = true;
+
+            }
+            
+                progressBar.Value = 0;
+                timer1.Stop();
         }
     }
 }

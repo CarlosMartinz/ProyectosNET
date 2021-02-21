@@ -45,6 +45,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.grdUsuarios = new System.Windows.Forms.DataGridView();
+            this.eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlFondo = new System.Windows.Forms.Panel();
             this.pnlRegistro = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -104,7 +105,6 @@
             this.errorLetras = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNumero = new System.Windows.Forms.ErrorProvider(this.components);
             this.abrirExplorador = new System.Windows.Forms.OpenFileDialog();
-            this.eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptcCrud)).BeginInit();
             this.panel2.SuspendLayout();
@@ -294,6 +294,17 @@
             this.grdUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsuarios_CellClick);
             this.grdUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsuarios_CellDoubleClick);
             // 
+            // eliminar
+            // 
+            this.eliminar.FillWeight = 150F;
+            this.eliminar.HeaderText = "";
+            this.eliminar.Image = ((System.Drawing.Image)(resources.GetObject("eliminar.Image")));
+            this.eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.eliminar.MinimumWidth = 45;
+            this.eliminar.Name = "eliminar";
+            this.eliminar.ReadOnly = true;
+            this.eliminar.Width = 45;
+            // 
             // pnlFondo
             // 
             this.pnlFondo.BackColor = System.Drawing.Color.Gray;
@@ -303,6 +314,7 @@
             this.pnlFondo.Name = "pnlFondo";
             this.pnlFondo.Size = new System.Drawing.Size(780, 521);
             this.pnlFondo.TabIndex = 28;
+            this.pnlFondo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlFondo_Paint);
             // 
             // pnlRegistro
             // 
@@ -510,6 +522,7 @@
             this.cboRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRol.FormattingEnabled = true;
             this.cboRol.Items.AddRange(new object[] {
+            "Solo toma pedidos (No tiene acceso a cobros)",
             "Cajero (Solo esta autorizado a realizar ventas)",
             "Gerente (Tiene acceso a ventas y control de inventario)",
             "Administrador (Control total)"});
@@ -951,17 +964,6 @@
             // abrirExplorador
             // 
             this.abrirExplorador.FileName = "openFileDialog1";
-            // 
-            // eliminar
-            // 
-            this.eliminar.FillWeight = 150F;
-            this.eliminar.HeaderText = "";
-            this.eliminar.Image = ((System.Drawing.Image)(resources.GetObject("eliminar.Image")));
-            this.eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.eliminar.MinimumWidth = 45;
-            this.eliminar.Name = "eliminar";
-            this.eliminar.ReadOnly = true;
-            this.eliminar.Width = 45;
             // 
             // FormUsuarios
             // 

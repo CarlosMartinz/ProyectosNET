@@ -439,7 +439,7 @@ namespace SistemaFarmacia
             txtUsuario.Text = "";
             txtPass.Text = "";
             txtEmail.Text = "";
-            cboRol.SelectedIndex = 0;
+            cboRol.SelectedIndex = 1;
             txtNombreIcono.Text = "";
             lblAnuncioIcono.Visible = true;
 
@@ -501,6 +501,11 @@ namespace SistemaFarmacia
                 e.Handled = true;
             }
             else errorLetras.Clear();
+        }
+
+        private void pnlFondo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

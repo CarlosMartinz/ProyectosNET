@@ -32,9 +32,10 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDineroCaja = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn3 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
@@ -45,11 +46,18 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btn9 = new System.Windows.Forms.Button();
             this.btn8 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
-            this.btn0 = new System.Windows.Forms.Button();
-            this.btnborrarderecha = new System.Windows.Forms.Button();
             this.btnborrartodo = new System.Windows.Forms.Button();
+            this.btn0 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnborrarderecha = new System.Windows.Forms.Button();
+            this.lbliCaja = new System.Windows.Forms.Label();
+            this.lblSerialPC = new System.Windows.Forms.Label();
+            this.dataListar = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListar)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -65,6 +73,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.button1.TabIndex = 0;
             this.button1.Text = "Iniciar Caja";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -86,14 +95,14 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.label2.TabIndex = 2;
             this.label2.Text = "Con cuanto efectivo inicias en caja!?";
             // 
-            // textBox1
+            // txtDineroCaja
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(70, 135);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(305, 29);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDineroCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDineroCaja.Location = new System.Drawing.Point(149, 120);
+            this.txtDineroCaja.Name = "txtDineroCaja";
+            this.txtDineroCaja.Size = new System.Drawing.Size(137, 29);
+            this.txtDineroCaja.TabIndex = 3;
+            this.txtDineroCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button2
             // 
@@ -104,21 +113,37 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(207, 41);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Cerrar";
+            this.button2.Text = "Omitir";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dataListar);
+            this.panel1.Controls.Add(this.lblSerialPC);
+            this.panel1.Controls.Add(this.lbliCaja);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.flowLayoutPanel2);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(440, 578);
             this.panel1.TabIndex = 5;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(108, 120);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 29);
+            this.label3.TabIndex = 620;
+            this.label3.Text = "$";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel2
             // 
@@ -132,9 +157,9 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.flowLayoutPanel2.Controls.Add(this.btn9);
             this.flowLayoutPanel2.Controls.Add(this.btn8);
             this.flowLayoutPanel2.Controls.Add(this.btn7);
-            this.flowLayoutPanel2.Controls.Add(this.btn0);
             this.flowLayoutPanel2.Controls.Add(this.btnborrartodo);
-            this.flowLayoutPanel2.Controls.Add(this.btnborrarderecha);
+            this.flowLayoutPanel2.Controls.Add(this.btn0);
+            this.flowLayoutPanel2.Controls.Add(this.button3);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(113, 170);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -156,6 +181,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btn3.TabIndex = 42;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = false;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btn2
             // 
@@ -172,6 +198,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btn2.TabIndex = 41;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = false;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btn1
             // 
@@ -188,6 +215,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btn1.TabIndex = 40;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = false;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn6
             // 
@@ -204,6 +232,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btn6.TabIndex = 37;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = false;
+            this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btn5
             // 
@@ -220,6 +249,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btn5.TabIndex = 36;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = false;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn4
             // 
@@ -236,6 +266,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btn4.TabIndex = 35;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = false;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // btn9
             // 
@@ -252,6 +283,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btn9.TabIndex = 32;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = false;
+            this.btn9.Click += new System.EventHandler(this.btn9_Click);
             // 
             // btn8
             // 
@@ -268,6 +300,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btn8.TabIndex = 31;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = false;
+            this.btn8.Click += new System.EventHandler(this.btn8_Click);
             // 
             // btn7
             // 
@@ -284,40 +317,7 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btn7.TabIndex = 30;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = false;
-            // 
-            // btn0
-            // 
-            this.btn0.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn0.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn0.FlatAppearance.BorderSize = 0;
-            this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn0.Font = new System.Drawing.Font("Calibri", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn0.ForeColor = System.Drawing.Color.White;
-            this.btn0.Location = new System.Drawing.Point(147, 216);
-            this.btn0.Name = "btn0";
-            this.btn0.Size = new System.Drawing.Size(65, 65);
-            this.btn0.TabIndex = 620;
-            this.btn0.Text = "0";
-            this.btn0.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn0.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn0.UseVisualStyleBackColor = false;
-            // 
-            // btnborrarderecha
-            // 
-            this.btnborrarderecha.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnborrarderecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnborrarderecha.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnborrarderecha.FlatAppearance.BorderSize = 0;
-            this.btnborrarderecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnborrarderecha.Font = new System.Drawing.Font("Calibri", 21F, System.Drawing.FontStyle.Bold);
-            this.btnborrarderecha.ForeColor = System.Drawing.Color.White;
-            this.btnborrarderecha.Location = new System.Drawing.Point(5, 216);
-            this.btnborrarderecha.Name = "btnborrarderecha";
-            this.btnborrarderecha.Size = new System.Drawing.Size(65, 65);
-            this.btnborrarderecha.TabIndex = 619;
-            this.btnborrarderecha.Text = "<--";
-            this.btnborrarderecha.UseVisualStyleBackColor = false;
+            this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
             // btnborrartodo
             // 
@@ -328,12 +328,108 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.btnborrartodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnborrartodo.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnborrartodo.ForeColor = System.Drawing.Color.White;
-            this.btnborrartodo.Location = new System.Drawing.Point(76, 216);
+            this.btnborrartodo.Location = new System.Drawing.Point(147, 216);
             this.btnborrartodo.Name = "btnborrartodo";
             this.btnborrartodo.Size = new System.Drawing.Size(65, 65);
             this.btnborrartodo.TabIndex = 618;
             this.btnborrartodo.Text = "Borrar";
             this.btnborrartodo.UseVisualStyleBackColor = false;
+            this.btnborrartodo.Click += new System.EventHandler(this.btnborrartodo_Click);
+            // 
+            // btn0
+            // 
+            this.btn0.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn0.FlatAppearance.BorderSize = 0;
+            this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn0.Font = new System.Drawing.Font("Calibri", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn0.ForeColor = System.Drawing.Color.White;
+            this.btn0.Location = new System.Drawing.Point(76, 216);
+            this.btn0.Name = "btn0";
+            this.btn0.Size = new System.Drawing.Size(65, 65);
+            this.btn0.TabIndex = 620;
+            this.btn0.Text = "0";
+            this.btn0.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn0.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn0.UseVisualStyleBackColor = false;
+            this.btn0.Click += new System.EventHandler(this.btn0_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(5, 216);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(65, 65);
+            this.button3.TabIndex = 621;
+            this.button3.Text = ".";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnborrarderecha
+            // 
+            this.btnborrarderecha.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnborrarderecha.BackColor = System.Drawing.Color.Red;
+            this.btnborrarderecha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnborrarderecha.FlatAppearance.BorderSize = 0;
+            this.btnborrarderecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnborrarderecha.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnborrarderecha.ForeColor = System.Drawing.Color.White;
+            this.btnborrarderecha.Location = new System.Drawing.Point(292, 120);
+            this.btnborrarderecha.Name = "btnborrarderecha";
+            this.btnborrarderecha.Size = new System.Drawing.Size(35, 29);
+            this.btnborrarderecha.TabIndex = 619;
+            this.btnborrarderecha.Text = "<--";
+            this.btnborrarderecha.UseVisualStyleBackColor = false;
+            this.btnborrarderecha.Click += new System.EventHandler(this.btnborrarderecha_Click);
+            // 
+            // lbliCaja
+            // 
+            this.lbliCaja.AutoSize = true;
+            this.lbliCaja.Location = new System.Drawing.Point(18, 26);
+            this.lbliCaja.Name = "lbliCaja";
+            this.lbliCaja.Size = new System.Drawing.Size(40, 13);
+            this.lbliCaja.TabIndex = 621;
+            this.lbliCaja.Text = "lbliCaja";
+            this.lbliCaja.Visible = false;
+            // 
+            // lblSerialPC
+            // 
+            this.lblSerialPC.AutoSize = true;
+            this.lblSerialPC.Location = new System.Drawing.Point(18, 42);
+            this.lblSerialPC.Name = "lblSerialPC";
+            this.lblSerialPC.Size = new System.Drawing.Size(57, 13);
+            this.lblSerialPC.TabIndex = 622;
+            this.lblSerialPC.Text = "lblSerialPC";
+            this.lblSerialPC.Visible = false;
+            // 
+            // dataListar
+            // 
+            this.dataListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataListar.Location = new System.Drawing.Point(271, 520);
+            this.dataListar.Name = "dataListar";
+            this.dataListar.RowHeadersVisible = false;
+            this.dataListar.Size = new System.Drawing.Size(166, 55);
+            this.dataListar.TabIndex = 623;
+            this.dataListar.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.txtDineroCaja);
+            this.panel2.Controls.Add(this.btnborrarderecha);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(440, 578);
+            this.panel2.TabIndex = 624;
             // 
             // FormApertura
             // 
@@ -341,18 +437,20 @@ namespace SistemaFarmacia.MODULOS.Caja
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(440, 578);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "FormApertura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormApertura";
+            this.Load += new System.EventHandler(this.FormApertura_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataListar)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -361,7 +459,7 @@ namespace SistemaFarmacia.MODULOS.Caja
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDineroCaja;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -377,5 +475,11 @@ namespace SistemaFarmacia.MODULOS.Caja
         internal System.Windows.Forms.Button btn0;
         internal System.Windows.Forms.Button btnborrartodo;
         internal System.Windows.Forms.Button btnborrarderecha;
+        internal System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbliCaja;
+        private System.Windows.Forms.Label lblSerialPC;
+        private System.Windows.Forms.DataGridView dataListar;
+        private System.Windows.Forms.Panel panel2;
     }
 }
