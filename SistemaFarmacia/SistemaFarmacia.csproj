@@ -111,6 +111,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -126,6 +127,7 @@
   <ItemGroup>
     <Content Include="MODULOS\Login\CorreoRecuperar.html" />
     <Content Include="MODULOS\stethoscope_doctor_health_medical_healthcare_icon_140241.png" />
+    <None Include="Resources\Logo FarSystem.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

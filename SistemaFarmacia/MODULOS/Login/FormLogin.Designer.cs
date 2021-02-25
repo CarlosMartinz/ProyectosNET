@@ -49,6 +49,8 @@ namespace SistemaFarmacia.MODULOS.Login
             this.label6 = new System.Windows.Forms.Label();
             this.txtMensaje = new System.Windows.Forms.RichTextBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblPermisoCaja = new System.Windows.Forms.Label();
+            this.lblValidarID = new System.Windows.Forms.Label();
             this.lblidUsuario = new System.Windows.Forms.Label();
             this.lblAperturaCaja = new System.Windows.Forms.Label();
             this.lblnombre = new System.Windows.Forms.Label();
@@ -89,15 +91,13 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btn8 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.ptcCarga = new System.Windows.Forms.PictureBox();
             this.espera = new System.Windows.Forms.Timer(this.components);
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.esperarCarga = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataListadoMovimientoValidar = new System.Windows.Forms.DataGridView();
-            this.lblValidarID = new System.Windows.Forms.Label();
-            this.lblPermisoCaja = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ptcCarga = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsuarios.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -113,9 +113,9 @@ namespace SistemaFarmacia.MODULOS.Login
             this.MenuStrip15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptcCarga)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoMovimientoValidar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcCarga)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -238,6 +238,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btnSalirLogin.TabIndex = 627;
             this.btnSalirLogin.Text = "Volver";
             this.btnSalirLogin.UseVisualStyleBackColor = false;
+            this.btnSalirLogin.Click += new System.EventHandler(this.btnSalirLogin_Click);
             // 
             // label5
             // 
@@ -350,6 +351,26 @@ namespace SistemaFarmacia.MODULOS.Login
             this.panel7.Size = new System.Drawing.Size(146, 452);
             this.panel7.TabIndex = 618;
             this.panel7.Visible = false;
+            // 
+            // lblPermisoCaja
+            // 
+            this.lblPermisoCaja.AutoSize = true;
+            this.lblPermisoCaja.ForeColor = System.Drawing.Color.White;
+            this.lblPermisoCaja.Location = new System.Drawing.Point(14, 297);
+            this.lblPermisoCaja.Name = "lblPermisoCaja";
+            this.lblPermisoCaja.Size = new System.Drawing.Size(59, 13);
+            this.lblPermisoCaja.TabIndex = 644;
+            this.lblPermisoCaja.Text = "lblPermisos";
+            // 
+            // lblValidarID
+            // 
+            this.lblValidarID.AutoSize = true;
+            this.lblValidarID.ForeColor = System.Drawing.Color.White;
+            this.lblValidarID.Location = new System.Drawing.Point(14, 271);
+            this.lblValidarID.Name = "lblValidarID";
+            this.lblValidarID.Size = new System.Drawing.Size(47, 13);
+            this.lblValidarID.TabIndex = 643;
+            this.lblValidarID.Text = "idValidar";
             // 
             // lblidUsuario
             // 
@@ -908,19 +929,6 @@ namespace SistemaFarmacia.MODULOS.Login
             this.label2.Text = "Inicio de Sesion";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ptcCarga
-            // 
-            this.ptcCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ptcCarga.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ptcCarga.Image = ((System.Drawing.Image)(resources.GetObject("ptcCarga.Image")));
-            this.ptcCarga.Location = new System.Drawing.Point(0, 0);
-            this.ptcCarga.Name = "ptcCarga";
-            this.ptcCarga.Size = new System.Drawing.Size(900, 645);
-            this.ptcCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptcCarga.TabIndex = 624;
-            this.ptcCarga.TabStop = false;
-            this.ptcCarga.Visible = false;
-            // 
             // espera
             // 
             this.espera.Tick += new System.EventHandler(this.espera_Tick);
@@ -965,29 +973,22 @@ namespace SistemaFarmacia.MODULOS.Login
             this.dataListadoMovimientoValidar.Size = new System.Drawing.Size(106, 71);
             this.dataListadoMovimientoValidar.TabIndex = 641;
             // 
-            // lblValidarID
-            // 
-            this.lblValidarID.AutoSize = true;
-            this.lblValidarID.ForeColor = System.Drawing.Color.White;
-            this.lblValidarID.Location = new System.Drawing.Point(14, 271);
-            this.lblValidarID.Name = "lblValidarID";
-            this.lblValidarID.Size = new System.Drawing.Size(47, 13);
-            this.lblValidarID.TabIndex = 643;
-            this.lblValidarID.Text = "idValidar";
-            // 
-            // lblPermisoCaja
-            // 
-            this.lblPermisoCaja.AutoSize = true;
-            this.lblPermisoCaja.ForeColor = System.Drawing.Color.White;
-            this.lblPermisoCaja.Location = new System.Drawing.Point(14, 297);
-            this.lblPermisoCaja.Name = "lblPermisoCaja";
-            this.lblPermisoCaja.Size = new System.Drawing.Size(59, 13);
-            this.lblPermisoCaja.TabIndex = 644;
-            this.lblPermisoCaja.Text = "lblPermisos";
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // ptcCarga
+            // 
+            this.ptcCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.ptcCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptcCarga.Image = ((System.Drawing.Image)(resources.GetObject("ptcCarga.Image")));
+            this.ptcCarga.Location = new System.Drawing.Point(0, 0);
+            this.ptcCarga.Name = "ptcCarga";
+            this.ptcCarga.Size = new System.Drawing.Size(900, 645);
+            this.ptcCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptcCarga.TabIndex = 624;
+            this.ptcCarga.TabStop = false;
+            this.ptcCarga.Visible = false;
             // 
             // FormLogin
             // 
@@ -996,10 +997,10 @@ namespace SistemaFarmacia.MODULOS.Login
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(900, 645);
             this.Controls.Add(this.ptcCarga);
+            this.Controls.Add(this.pnlRestaurar);
             this.Controls.Add(this.pnlVerificador);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.pnlRestaurar);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlUsuarios);
@@ -1028,9 +1029,9 @@ namespace SistemaFarmacia.MODULOS.Login
             this.MenuStrip15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptcCarga)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoMovimientoValidar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcCarga)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1093,7 +1094,6 @@ namespace SistemaFarmacia.MODULOS.Login
         private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.Label lblnombre;
         private System.Windows.Forms.Label lblAperturaCaja;
-        internal System.Windows.Forms.PictureBox ptcCarga;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Timer esperarCarga;
         private System.Windows.Forms.DataGridView datalistadoDetalleCierreCaja;
@@ -1104,5 +1104,6 @@ namespace SistemaFarmacia.MODULOS.Login
         private System.Windows.Forms.Label lblValidarID;
         private System.Windows.Forms.Label lblPermisoCaja;
         private System.Windows.Forms.Timer timer1;
+        internal System.Windows.Forms.PictureBox ptcCarga;
     }
 }

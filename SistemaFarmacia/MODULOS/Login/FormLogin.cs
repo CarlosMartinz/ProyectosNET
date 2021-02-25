@@ -661,6 +661,16 @@ namespace SistemaFarmacia.MODULOS.Login
                 progressBar.Value = 0;
                 timer1.Stop();
         }
+
+        private void btnSalirLogin_Click(object sender, EventArgs e)
+        {
+            mostrarCorreos();
+            pnlRestaurar.Visible = true;
+            btnSalirLogin.Visible = true;
+            btnVolver.Visible = false;
+            pnlVerificador.Visible = false;
+            pnlUsuarios.Visible = false;
+        }
     }
 }
 

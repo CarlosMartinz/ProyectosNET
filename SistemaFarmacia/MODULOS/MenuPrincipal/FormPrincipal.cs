@@ -54,6 +54,7 @@ namespace SistemaFarmacia.MODULOS
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             iniciarFacturar();
+
         }
 
         private void iniciarFacturar()
@@ -68,6 +69,11 @@ namespace SistemaFarmacia.MODULOS
         {
             Caja.FormCierre form = new Caja.FormCierre();
             form.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click_2(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
