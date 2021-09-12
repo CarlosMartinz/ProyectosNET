@@ -75,5 +75,11 @@ namespace SistemaFarmacia.MODULOS
         {
             Close();
         }
+
+        private void BtnCerrar_turno_Click(object sender, EventArgs e)
+        {
+            Caja.FormCierre form = new Caja.FormCierre();
+            form.ShowDialog();
+        }
     }
 }

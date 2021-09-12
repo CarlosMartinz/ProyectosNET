@@ -665,11 +665,16 @@ namespace SistemaFarmacia.MODULOS.Login
         private void btnSalirLogin_Click(object sender, EventArgs e)
         {
             mostrarCorreos();
-            pnlRestaurar.Visible = true;
-            btnSalirLogin.Visible = true;
+            pnlRestaurar.Visible = false;
+            btnSalirLogin.Visible = false;
             btnVolver.Visible = false;
             pnlVerificador.Visible = false;
-            pnlUsuarios.Visible = false;
+            pnlUsuarios.Visible = true;
+        }
+
+        private void ptcCarga_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

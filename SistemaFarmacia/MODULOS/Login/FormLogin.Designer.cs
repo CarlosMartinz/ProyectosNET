@@ -232,7 +232,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.btnSalirLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalirLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalirLogin.ForeColor = System.Drawing.Color.DarkGray;
-            this.btnSalirLogin.Location = new System.Drawing.Point(186, 267);
+            this.btnSalirLogin.Location = new System.Drawing.Point(184, 269);
             this.btnSalirLogin.Name = "btnSalirLogin";
             this.btnSalirLogin.Size = new System.Drawing.Size(210, 35);
             this.btnSalirLogin.TabIndex = 627;
@@ -989,6 +989,7 @@ namespace SistemaFarmacia.MODULOS.Login
             this.ptcCarga.TabIndex = 624;
             this.ptcCarga.TabStop = false;
             this.ptcCarga.Visible = false;
+            this.ptcCarga.Click += new System.EventHandler(this.ptcCarga_Click);
             // 
             // FormLogin
             // 

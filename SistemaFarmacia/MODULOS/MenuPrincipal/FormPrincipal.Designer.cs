@@ -80,6 +80,7 @@ namespace SistemaFarmacia.MODULOS
             this.BtnCerrar_turno.TabIndex = 601;
             this.BtnCerrar_turno.Text = "Cerrar Turno";
             this.BtnCerrar_turno.UseVisualStyleBackColor = false;
+            this.BtnCerrar_turno.Click += new System.EventHandler(this.BtnCerrar_turno_Click);
             // 
             // Panel17
             // 
@@ -250,14 +251,14 @@ namespace SistemaFarmacia.MODULOS
             // cerrarTurnoToolStripMenuItem
             // 
             this.cerrarTurnoToolStripMenuItem.Name = "cerrarTurnoToolStripMenuItem";
-            this.cerrarTurnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarTurnoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cerrarTurnoToolStripMenuItem.Text = "Cerrar turno";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click_2);
             // 
